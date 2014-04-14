@@ -1,0 +1,80 @@
+<html>
+  <head>
+    <title>Kyousushi</title>
+
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+    // Wait for device API libraries to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // device APIs are available
+    //
+    function onDeviceReady() {
+        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    }
+	
+	/*
+	* Calculate distance (in km) between two points specified by
+	latitude/longitude with Haversine formula
+	*/
+	LatLong.distHaversine = function(p11, p12, p21, p22) {
+		 var R = 6371; // earth's mean radius in km
+		 var dLat  = p21.lat - p11.lat;
+		 var dLong = p22.lon - p12.lon;
+		 		  var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+			  Math.cos(p1.lat) * Math.cos(p2.lat) * Math.sin(dLong/2) * Math.sin(dLong/2);
+		 var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+		  var d = R * c;
+		 
+		  return d;
+		}
+
+    // onSuccess Geolocation
+    //
+ function onSuccess(position) {
+        var div1 = document.getElementById('myDiv1');
+		var div2 = document.getElementById('myDiv2');
+		
+		var distMe = LatLong.distHaversine( position.coords.latitude, position.coords.longitude, 49, 7);
+		var distTh = LatLong.distHaversine( position.coords.latitude, position.coords.longitude, 48 , 6);		
+		
+
+        div1.innerHTML = 'Restaurant de Thionville <br/> Distance : + ' distMe + '<br/>'
+		div2.innerHTML = 'Restaurant de Metz <br/> Distance : + ' distTh + '<br/>'
+		
+		if(distMe < distTh){div1.style.backgroundColor = "0066FF";
+							div2.style.backgroundColor = "CECECE";}
+		else {div2.style.backgroundColor = "0066FF";
+			 div1.style.backgroundColor = "CECECE";}
+
+    // onError Callback receives a PositionError object
+    //
+    function onError(error) {
+        alert('code: '    + error.code    + '\n' +
+              'message: ' + error.message + '\n');
+    }
+    </script>
+  </head>
+  <body>
+        <div class="app">
+            <h1>Kyousushi</h1>
+            <div id="deviceready" class="blink">
+				<p class="event listening" id="geolocation" style="margin-top:60%; text-align:center"><b>Recherche de gélocalisation...</b></p>
+				<p class="event received">
+			<div id="page">
+	
+			<div id="myDiv1" onClick= window.location.replace('http://www.thionville.fr/')></div>
+	
+			<div id="myDiv2" onClick= window.location.replace('http://www.metz.fr/')></div>
+		</div>
+	
+		</p>
+	</div>
+</div>
+	
+	
+	<script type="text/javascript" src="js/index.js"></script>
+  </body>
+</html>
