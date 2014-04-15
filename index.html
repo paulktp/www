@@ -31,14 +31,13 @@
 
     // onSuccess Geolocation
  function onSuccess(position) {
-        var div1 = document.getElementById('myDiv1');
-		var div2 = document.getElementById('myDiv2');
+        var element = document.getElementById('gelocation');
 		
 		var distMe = LatLong.distHaversine( position.coords.latitude, position.coords.longitude, 49, 7);
 		var distTh = LatLong.distHaversine( position.coords.latitude, position.coords.longitude, 48 , 6);		
 		
-        div1.innerHTML = 'Restaurant de Thionville <br/> Distance : + ' distMe + '<br/>'
-		div2.innerHTML = 'Restaurant de Metz <br/> Distance : + ' distTh + '<br/>'
+        element.innerHTML = '<div onClick= window.location.replace(\'http://www.thionville.fr\') style=" border: solid thick black; border-radius: 1em; ; height:40%"> Restaurant de Thionville <br/> Distance : + ' distMe + '<br/></div>'
+		'<div onClick= window.location.replace(\'http://www.metz.fr\') style=" border: solid thick black; border-radius: 1em; margin-top:10%; height:40%"> Restaurant de Metz <br/> Distance : + ' distTh + '<br/></div>'
 		
 		if(distMe < distTh){div1.style.backgroundColor = "0066FF";
 							div2.style.backgroundColor = "CECECE";}
@@ -90,9 +89,7 @@ Her Majesty\'s Royal Palace and Fortress, more commonly known as the Tower of Lo
 				<p class="event received">
 			<div id="page">
 	
-			<div id="myDiv1" onClick= window.location.replace('http://www.thionville.fr/') style=" border: solid thick black; border-radius: 1em; ; height:40%"></div>
-	
-			<div id="myDiv2" onClick= window.location.replace('http://www.metz.fr/') style=" border: solid thick black; border-radius: 1em; margin-top:10%; height:40%"></div>
+			
 		</div>
 	
 		</p>
