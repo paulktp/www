@@ -3,46 +3,44 @@
     <title>Kyousushi</title>
 
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-    <script type="text/javascript" charset="utf-8">
+       <script type="text/javascript" charset="utf-8">
 
     // Wait for device API libraries to load
+    //
     document.addEventListener("deviceready", onDeviceReady, false);
 
     // device APIs are available
+    //
     function onDeviceReady() {
         navigator.geolocation.getCurrentPosition(onSuccess, onError);
     }
-	
-	/*
-	* Calculate distance (in km) between two points specified by
-	latitude/longitude with Haversine formula
-	*/
-	LatLong.distHaversine = function(p11, p12, p21, p22) {
-		 var R = 6371; // earth's mean radius in km
-		 var dLat  = p21.lat - p11.lat;
-		 var dLong = p22.lon - p12.lon;
-		 		  var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-			  Math.cos(p1.lat) * Math.cos(p2.lat) * Math.sin(dLong/2) * Math.sin(dLong/2);
-		 var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-		  var d = R * c;
-		 
-		  return d;
-		}
 
     // onSuccess Geolocation
- function onSuccess(position) {
-        var element = document.getElementById('gelocation');
+    //
+    function onSuccess(position) {
+        var element1 = document.getElementById('myDiv1');
+		var element2 = document.getElementById('myDiv2');
 		
-		var distMe = LatLong.distHaversine( position.coords.latitude, position.coords.longitude, 49, 7);
-		var distTh = LatLong.distHaversine( position.coords.latitude, position.coords.longitude, 48 , 6);		
-		
-        element.innerHTML = '<div onClick= window.location.replace(\'http://www.thionville.fr\') style=" border: solid thick black; border-radius: 1em; ; height:40%"> Restaurant de Thionville <br/> Distance : + ' distMe + '<br/></div>'
-		'<div onClick= window.location.replace(\'http://www.metz.fr\') style=" border: solid thick black; border-radius: 1em; margin-top:10%; height:40%"> Restaurant de Metz <br/> Distance : + ' distTh + '<br/></div>'
-		
-		if(distMe < distTh){div1.style.backgroundColor = "0066FF";
-							div2.style.backgroundColor = "CECECE";}
-		else {div2.style.backgroundColor = "0066FF";
-			 div1.style.backgroundColor = "CECECE";}
+		var distMe = Distance(position.coords.latitude, position.coords.longitude, 49.3667, 6.1667);
+		var distTh = Distance(position.coords.latitude, position.coords.longitude, 49.133333,  6.166667);
+
+		if(distMe > distTh){
+		element1.borderColor="e2b500";
+			element1.innerHTML = '<p style="text-align:center; margin-top:25%;color:e2b500">Vous êtes plus proche du ' + '</p>';
+			element1.innerHTML += '<p style="text-align:center;">Restaurant de Thionville' + '<br />' +'Distance : ' + distMe + 'km' + '<br />' + '</p>';
+			element2.innerHTML = '<p style="text-align:center; margin-top:35%; color:white">' + 'Restaurant de Metz' + '<br />' +'Distance : ' + distTh + 'km' + '<br />' + '</p>';
+			element1.style.backgroundColor = "white";
+			element2.style.backgroundColor = "black";}
+		else { 
+		element1.borderColor="e2b500";
+			element2.innerHTML = '<p style="text-align:center; margin-top:25%;color:e2b500">Vous êtes plus proche du ' + '</p>';
+			element1.innerHTML = '<p style="text-align:center; margin-top:35%;">' + 'Restaurant de Thionville' + '<br />' +'Distance : ' + distMe + 'km' + '<br />' + '</p>';
+			element2.innerHTML += '<p style="text-align:center; color:white">Restaurant de Metz' + '<br />' +'Distance : ' + distTh + 'km' + '<br />' + '</p>';	
+			element2.style.backgroundColor = "black";
+			element1.style.backgroundColor = "white";}		
+							
+							
+    }
 
     // onError Callback receives a PositionError object
     //
@@ -51,45 +49,42 @@
               'message: ' + error.message + '\n');
     }
 	
-	/**
- * Map Pointers
-$(document).ready(function(){
- var map = new GMaps({
-    el: '#pointers_map',
-    lat: 51.5073346,
-    lng: -0.1276831,
-    zoom: 13,
-    zoomControl : true,
-    zoomControlOpt: {
-        style : 'SMALL',
-        position: 'TOP_LEFT'
-    },
-    panControl : false,
-  });
-    map.addMarker({
-      lat: 51.5089465,
-      lng: -0.0764269,
-      title: 'Tower Of London',
-      infoWindow: {
-        content: '
-Her Majesty\'s Royal Palace and Fortress, more commonly known as the Tower of London, is a historic castle on the north bank of the River Thames in central London, England, United Kingdom.
-'
-      }
-    });
-	http://paulund.developpez.com/tutoriels/jquery/cartes-gmapjs/
-	*/
+		var LatA = 41.3879169;
+		var LngB = 2.1699187;
+
+		var LatB = 40.4167413;
+		var LngB = -3.7032498;
+
+		Distancia = Dist(LatA, LngA, LatB, LngB);   //Retour en Km
+
+		function Distance(LatA, LngA, LatB, LngB)
+		  {
+		  rad = function(x) {return x*Math.PI/180;}
+
+		  var R     = 6371;                          //Rayon de la Terre en km
+		  var dLat  = rad( LatB - LatA );
+		  var dLong = rad( LngB - LngA );
+
+		  var a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(rad(LatA)) * Math.cos(rad(LatB)) * Math.sin(dLong/2) * Math.sin(dLong/2);
+		  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+		  var d = R * c;
+
+		  return d.toFixed(1);                      //Retour 3 décimales
+		}
+
     </script>
   </head>
-  <body>
-        <div class="app">
-            <h1>Kyousushi</h1>
-            <div id="deviceready" class="blink">
-				<p class="event listening" id="geolocation" style="margin-top:60%; text-align:center;">
-				<b>Recherche de gélocalisation...</b></p>
+  <body style="background-color:FFCCFF">
+        <div class="app" >
+            <h1 style="text-align:center;">Kyousushi</h1>
+            <div id="deviceready" class="blink" style="position:relative">
 				<p class="event received">
-			<div id="page">
-	
-			
+		<div id="page" style="margin-left:15%">			
+			<div id="myDiv1" onClick= window.location.replace('http://www.thionville.fr/') style=" border: double 15px black; border-radius: 1em; height:35%; width:75%"></div>
+		</div>
+		<div id="page" style="margin-left:15%">
+			<div id="myDiv2" onClick= window.location.replace('http://www.kyousushi.com/') style=" border: double 15px white; border-radius: 1em; margin-top:10%; height:35%; width:75%"></div>
+		</div>
 		</div>
 	
 		</p>
