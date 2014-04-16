@@ -16,7 +16,8 @@
     <author href="http://www.ktp.net" email="contact@ktp.net">
         KTP Concept
     </author>
-
+	
+	<icon src="icon.png" />
 	
 	<!--
         If you do not want any permissions to be added to your app, add the
