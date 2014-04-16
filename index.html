@@ -1,7 +1,7 @@
 <html>
   <head>
-    <title>Kyousushi</title>
-	<script src="phonegap.js">	
+    <title>Kyousushi</title>	
+	<script src="phonegap.js"></script>	
   </head>
   <body onload="init();" style="background-color:FFCCFF">
         <div class="app" >
@@ -19,6 +19,7 @@
 		</p>
 	</div>
 </div>
+
 	<script type="text/javascript" src="PushNotification.js"></script>
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 	<script type="text/javascript" src="js/index.js"></script>
@@ -28,8 +29,9 @@
 	document.addEventListener("deviceready", initPushwoosh, true);
 
     // device APIs are available
+	var options = { timeout: 31000, enableHighAccuracy: true, maximumAge: 90000 };
     function onDeviceReady() {
-        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+        navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
     }
 
     // onSuccess Geolocation
