@@ -59,6 +59,7 @@
 	<gap:plugin name="org.apache.cordova.dialogs" />
 	<gap:plugin name="org.apache.cordova.inappbrowser" />
     <gap:plugin name="org.apache.cordova.device" />
+	<gap:plugin name="com.pushwoosh.plugins.pushwoosh" version="3.0.2" />
 
     <!-- Define app icon for each platform. -->
     <icon src="icon.png" />
