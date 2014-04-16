@@ -17,8 +17,6 @@
         KTP Concept
     </author>
 	
-	<icon src="icon.png" />
-	
 	<!--
         If you do not want any permissions to be added to your app, add the
         following tag to your config.xml; you will still have the INTERNET
@@ -87,6 +85,37 @@
     <gap:splash src="res/screen/ios/screen-ipad-portrait.png"      gap:platform="ios"     width="768" height="1024" />
     <gap:splash src="res/screen/ios/screen-ipad-landscape.png"     gap:platform="ios"     width="1024" height="768" />
     <gap:splash src="res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone" />
+	
+	<!-- icon -->
+	<icon src="icon.png" />    
+    <icon src="icons/ico_57.png" gap:platform="ios" width="57" height="57" />
+	<icon src="icons/ico_72.png" gap:platform="ios" width="72" height="72" />
+	<icon src="icons/ico_114.png" gap:platform="ios" width="114" height="114" />
+	<icon src="icons/ico_144.png" gap:platform="ios" width="144" height="144" />
+
+	<icon src="icons/ico_76.png" gap:platform="ios" width="76" height="76" />
+	<icon src="icons/ico_120.png" gap:platform="ios" width="120" height="120" />
+	<icon src="icons/ico_152.png" gap:platform="ios" width="152" height="152" />
+
+	<icon src="icons/ico_36.png" gap:platform="android" gap:density="ldpi" />
+	<icon src="icons/ico_48.png" gap:platform="android" gap:density="mdpi" />
+	<icon src="icons/ico_72.png" gap:platform="android" gap:density="hdpi" />
+	<icon src="icons/ico_96.png" gap:platform="android" gap:density="xhdpi" />
+	<icon src="icons/ico_144.png" gap:platform="android" gap:density="xxhdpi" />
+
+	<!-- spash -->
+	<gap:splash src="splash.png" /><gap:splash src="splash/320x480.png" gap:platform="ios" width="320" height="480" />
+	<gap:splash src="splash/640x960.png" gap:platform="ios" width="640" height="960" />
+	<gap:splash src="splash/640x1136.png" gap:platform="ios" width="640" height="1136" />
+	<gap:splash src="splash/Default-Portrait.png" gap:platform="ios" width="768" height="1024" />
+    <gap:splash src="splash/Default-Landscape_at_2x.png" gap:platform="ios" width="2048" height="1496" />
+	<gap:splash src="splash/Default-Portrait_at_2x.png" gap:platform="ios" width="1536" height="2008" />
+
+
+	<gap:splash src="splash/200x320.png" gap:platform="android" gap:density="ldpi" />
+	<gap:splash src="splash/320x480.png" gap:platform="android" gap:density="mdpi" />
+	<gap:splash src="splash/480x800.png" gap:platform="android" gap:density="hdpi" />
+	<gap:splash src="splash/640x960.png" gap:platform="android" gap:density="xhdpi" />
 
     <!--
         Define access to external domains.
