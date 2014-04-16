@@ -1,80 +1,9 @@
 <html>
   <head>
     <title>Kyousushi</title>
-
-    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-       <script type="text/javascript" charset="utf-8">
-
-    // Wait for device API libraries to load
-    //
-    document.addEventListener("deviceready", onDeviceReady, false);
-
-    // device APIs are available
-    //
-    function onDeviceReady() {
-        navigator.geolocation.getCurrentPosition(onSuccess, onError);
-    }
-
-    // onSuccess Geolocation
-    //
-    function onSuccess(position) {
-        var element1 = document.getElementById('myDiv1');
-		var element2 = document.getElementById('myDiv2');
-		
-		var distMe = Distance(position.coords.latitude, position.coords.longitude, 49.3667, 6.1667);
-		var distTh = Distance(position.coords.latitude, position.coords.longitude, 49.133333,  6.166667);
-
-		if(distMe > distTh){
-		element1.borderColor="e2b500";
-			element1.innerHTML = '<p style="text-align:center; margin-top:25%;color:e2b500">Vous êtes plus proche du ' + '</p>';
-			element1.innerHTML += '<p style="text-align:center;">Restaurant de Thionville' + '<br />' +'Distance : ' + distMe + 'km' + '<br />' + '</p>';
-			element2.innerHTML = '<p style="text-align:center; margin-top:35%; color:white">' + 'Restaurant de Metz' + '<br />' +'Distance : ' + distTh + 'km' + '<br />' + '</p>';
-			element1.style.backgroundColor = "white";
-			element2.style.backgroundColor = "black";}
-		else { 
-		element1.borderColor="e2b500";
-			element2.innerHTML = '<p style="text-align:center; margin-top:25%;color:e2b500">Vous êtes plus proche du ' + '</p>';
-			element1.innerHTML = '<p style="text-align:center; margin-top:35%;">' + 'Restaurant de Thionville' + '<br />' +'Distance : ' + distMe + 'km' + '<br />' + '</p>';
-			element2.innerHTML += '<p style="text-align:center; color:white">Restaurant de Metz' + '<br />' +'Distance : ' + distTh + 'km' + '<br />' + '</p>';	
-			element2.style.backgroundColor = "black";
-			element1.style.backgroundColor = "white";}		
-							
-							
-    }
-
-    // onError Callback receives a PositionError object
-    //
-    function onError(error) {
-        alert('code: '    + error.code    + '\n' +
-              'message: ' + error.message + '\n');
-    }
 	
-		var LatA = 41.3879169;
-		var LngB = 2.1699187;
-
-		var LatB = 40.4167413;
-		var LngB = -3.7032498;
-
-		Distancia = Dist(LatA, LngA, LatB, LngB);   //Retour en Km
-
-		function Distance(LatA, LngA, LatB, LngB)
-		  {
-		  rad = function(x) {return x*Math.PI/180;}
-
-		  var R     = 6371;                          //Rayon de la Terre en km
-		  var dLat  = rad( LatB - LatA );
-		  var dLong = rad( LngB - LngA );
-
-		  var a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(rad(LatA)) * Math.cos(rad(LatB)) * Math.sin(dLong/2) * Math.sin(dLong/2);
-		  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-		  var d = R * c;
-
-		  return d.toFixed(1);                      //Retour 3 décimales
-		}
-
-    </script>
   </head>
-  <body style="background-color:FFCCFF">
+  <body onload="init();" style="background-color:FFCCFF">
         <div class="app" >
             <h1 style="text-align:center;">Kyousushi</h1>
             <div id="deviceready" class="blink" style="position:relative">
@@ -90,8 +19,143 @@
 		</p>
 	</div>
 </div>
-	
-	
+	<script type="text/javascript" src="PushNotification.js"></script>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 	<script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" charset="utf-8">
+    // Wait for device API libraries to load
+    document.addEventListener("deviceready", onDeviceReady, false);
+	document.addEventListener("deviceready", initPushwoosh, true);
+
+    // device APIs are available
+    function onDeviceReady() {
+        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    }
+
+    // onSuccess Geolocation
+    function onSuccess(position) {
+        var element1 = document.getElementById('myDiv1');
+		var element2 = document.getElementById('myDiv2');
+		
+		var distTh = Distance(position.coords.latitude , position.coords.longitude, 49.3667, 6.1667);
+		var distMe = Distance(position.coords.latitude , position.coords.longitude, 49.119327,  6.17101);
+
+		if(parseFloat(distMe) > parseFloat(distTh)){
+			element1.innerHTML = '<p style="text-align:center; margin-top:17%;color:e2b500">Vous êtes plus proche du </p>';
+			element1.innerHTML += '<p style="text-align:center;">Restaurant de Thionville<br />Distance : ' + distTh + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
+			element2.innerHTML = '<p style="text-align:center; margin-top:25%; color:white">Restaurant de Metz<br />Distance : ' + distMe + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
+			element1.style.backgroundColor = "white";
+			element2.style.backgroundColor = "black";
+			} 
+		else{ 
+			element2.innerHTML = '<p style="text-align:center; margin-top:17%;color:e2b500">Vous êtes plus proche du </p>';
+			element2.innerHTML += '<p style="text-align:center; color:white">Restaurant de Metz<br />Distance : ' + distMe + 'km <br /><br />Cliquer ici pour plus d\'information</p>';				
+			element1.innerHTML = '<p style="text-align:center; margin-top:25%;">Restaurant de Thionville<br />Distance : ' + distTh + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
+			element2.style.backgroundColor = "black";
+			element1.style.backgroundColor = "white";}		
+    }
+
+    // onError Callback receives a PositionError object
+    function onError(error) {
+        alert('code: '    + error.code    + '\n' +
+              'message: ' + error.message + '\n');
+    }
+	
+		var LatA = 41.3879169;
+		var LngB = 2.1699187;
+
+		var LatB = 40.4167413;
+		var LngB = -3.7032498;
+
+		Distancia = Dist(LatA, LngA, LatB, LngB);  
+
+		function Distance(LatA, LngA, LatB, LngB)
+		  {
+		  rad = function(x) {return x*Math.PI/180;}
+
+		  var R     = 6371;                         
+		  var dLat  = rad( LatB - LatA );
+		  var dLong = rad( LngB - LngA );
+
+		  var a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(rad(LatA)) * Math.cos(rad(LatB)) * Math.sin(dLong/2) * Math.sin(dLong/2);
+		  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+		  var d = R * c;
+
+		  return d.toFixed(1);     
+		}
+		
+		function initPushwoosh()
+{
+	// pushwoosh
+    var pushNotification = window.plugins.pushNotification;
+    pushNotification.onDeviceReady();
+ 
+    pushNotification.registerDevice({ projectid: "222157888865", appid : "C125D-81938" },
+        function(status) {
+            var pushToken = status;
+            console.warn('push token: ' + pushToken);
+        },
+        function(status) {
+            console.warn(JSON.stringify(['failed to register ', status]));
+        }
+    );
+ 
+    document.addEventListener('push-notification', function(event) {
+        var title = event.notification.title;
+            var userData = event.notification.userdata;
+                                 
+            if(typeof(userData) != "undefined") {
+            console.warn('user data: ' + JSON.stringify(userData));
+        }
+                                     
+        navigator.notification.alert(title);
+    });
+}
+
+			// Call this to register for push notifications and retreive a deviceToken
+			PushNotification.prototype.registerDevice = function(config, success, fail) {
+				cordova.exec(success, fail, "PushNotification", "registerDevice", config ? [config] : []);
+			};
+			 
+			// Call this to set tags for the device
+			PushNotification.prototype.setTags = function(config, success, fail) {
+				cordova.exec(success, fail, "PushNotification", "setTags", config ? [config] : []);
+			};
+			 
+			//Unregister device from push notifications
+			PushNotification.prototype.unregisterDevice = function(success, fail) {
+				cordova.exec(success, fail, "PushNotification", "unregisterDevice", []);
+			};
+			 
+			//starts geo push notifications
+			PushNotification.prototype.startGeoPushes = function(success, fail) {
+				cordova.exec(success, fail, "PushNotification", "startGeoPushes", []);
+			};
+			 
+			//stops geo push notifications
+			PushNotification.prototype.stopGeoPushes = function(success, fail) {
+				cordova.exec(success, fail, "PushNotification", "stopGeoPushes", []);
+			};
+			 
+			//sets multi notification mode on
+			PushNotification.prototype.setMultiNotificationMode = function(success, fail) {
+				cordova.exec(success, fail, "PushNotification", "setMultiNotificationMode", []);
+			};
+			 
+			//sets single notification mode
+			PushNotification.prototype.setSingleNotificationMode = function(success, fail) {
+				cordova.exec(success, fail, "PushNotification", "setSingleNotificationMode", []);
+			};
+			 
+			//type: 0 default, 1 no sound, 2 always
+			PushNotification.prototype.setSoundType = function(type, success, fail) {
+				cordova.exec(success, fail, "PushNotification", "setSoundType", [type]);
+			}; 
+			 
+			//type: 0 default, 1 no vibration, 2 always
+			PushNotification.prototype.setVibrateType = function(type, success, fail) {
+				cordova.exec(success, fail, "PushNotification", "setVibrateType", [type]);
+			}; 
+    </script>
   </body>
 </html>
