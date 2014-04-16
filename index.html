@@ -1,7 +1,7 @@
 <html>
   <head>
     <title>Kyousushi</title>
-	
+	<script src="phonegap.js">	
   </head>
   <body onload="init();" style="background-color:FFCCFF">
         <div class="app" >
@@ -84,9 +84,8 @@
 		  return d.toFixed(1);     
 		}
 		
-		function initPushwoosh()
-{
 	// pushwoosh
+	function initPushwoosh(){
     var pushNotification = window.plugins.pushNotification;
     pushNotification.onDeviceReady();
  
