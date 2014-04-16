@@ -5,14 +5,14 @@
   </head>
   <body onload="init();" style="background-color:FFCCFF">
         <div class="app" >
-            <h1 style="text-align:center;">Kyousushi</h1>
+            <h1 style="text-align:center;"><img src="logo.png" /></h1>
             <div id="deviceready" class="blink" style="position:relative">
 				<p class="event received">
 		<div id="page" style="margin-left:15%">			
-			<div id="myDiv1" onClick= window.location.replace('http://www.thionville.fr/') style=" border: double 15px black; border-radius: 1em; height:35%; width:75%"></div>
+			<div id="myDiv1" onClick= window.location.replace('http://www.thionville.fr/') style=" border: double 10px black; border-radius: 1em; height:28%; width:75%"></div>
 		</div>
 		<div id="page" style="margin-left:15%">
-			<div id="myDiv2" onClick= window.location.replace('http://www.kyousushi.com/') style=" border: double 15px white; border-radius: 1em; margin-top:10%; height:35%; width:75%"></div>
+			<div id="myDiv2" onClick= window.location.replace('http://www.kyousushi.com/') style=" border: double 10px white; border-radius: 1em; margin-top:10%; height:28%; width:75%"></div>
 		</div>
 		</div>
 	
@@ -43,16 +43,16 @@
 		var distMe = Distance(position.coords.latitude , position.coords.longitude, 49.119327,  6.17101);
 
 		if(parseFloat(distMe) > parseFloat(distTh)){
-			element1.innerHTML = '<p style="text-align:center; margin-top:17%;color:e2b500">Vous êtes plus proche du </p>';
+			element1.innerHTML = '<p style="text-align:center; margin-top:10%;color:e2b500">Vous êtes plus proche du </p>';
 			element1.innerHTML += '<p style="text-align:center;">Restaurant de Thionville<br />Distance : ' + distTh + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
-			element2.innerHTML = '<p style="text-align:center; margin-top:25%; color:white">Restaurant de Metz<br />Distance : ' + distMe + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
+			element2.innerHTML = '<p style="text-align:center; margin-top:15%; color:white">Restaurant de Metz<br />Distance : ' + distMe + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
 			element1.style.backgroundColor = "white";
 			element2.style.backgroundColor = "black";
 			} 
 		else{ 
-			element2.innerHTML = '<p style="text-align:center; margin-top:17%;color:e2b500">Vous êtes plus proche du </p>';
+			element2.innerHTML = '<p style="text-align:center; margin-top:10%;color:e2b500">Vous êtes plus proche du </p>';
 			element2.innerHTML += '<p style="text-align:center; color:white">Restaurant de Metz<br />Distance : ' + distMe + 'km <br /><br />Cliquer ici pour plus d\'information</p>';				
-			element1.innerHTML = '<p style="text-align:center; margin-top:25%;">Restaurant de Thionville<br />Distance : ' + distTh + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
+			element1.innerHTML = '<p style="text-align:center; margin-top:15%;">Restaurant de Thionville<br />Distance : ' + distTh + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
 			element2.style.backgroundColor = "black";
 			element1.style.backgroundColor = "white";}		
     }
@@ -87,6 +87,7 @@
 		}
 		
 	// pushwoosh
+	if( /iPhone|iPad|iPod/i.test(navigator.userAgent) ) {
 	function initPushwoosh(){
     var pushNotification = window.plugins.pushNotification;
     pushNotification.onDeviceReady();
@@ -111,7 +112,33 @@
                                      
         navigator.notification.alert(title);
     });
-}
+		}
+	}
+	if( /Android/i.test(navigator.userAgent) ) {
+	function initPushwoosh() {
+    var pushNotification = window.plugins.pushNotification;
+    pushNotification.onDeviceReady();
+     
+    pushNotification.registerDevice({alert:true, badge:true, sound:true, pw_appid:"C125D-81938", appname:"Kyou sushi"},
+        function(status) {
+            var deviceToken = status['deviceToken'];
+            console.warn('registerDevice: ' + deviceToken);
+        },
+        function(status) {
+            console.warn('failed to register : ' + JSON.stringify(status));
+            navigator.notification.alert(JSON.stringify(['failed to register ', status]));
+        }
+    );
+     
+    pushNotification.setApplicationIconBadgeNumber(0);
+     
+    document.addEventListener('push-notification', function(event) {
+        var notification = event.notification;
+        navigator.notification.alert(notification.aps.alert);
+        pushNotification.setApplicationIconBadgeNumber(0);
+    });
+	}
+	}
 
 			// Call this to register for push notifications and retreive a deviceToken
 			PushNotification.prototype.registerDevice = function(config, success, fail) {

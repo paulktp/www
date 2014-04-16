@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+<script src="gmaps.js"></script>
+</head>
+<body>
+<div id="pointers_map"></div>
+<script>
+/**
+ * Map Pointers
+ */
+$(document).ready(function(){
+ var map = new GMaps({
+    el: '#pointers_map',
+    lat: 51.5073346,
+    lng: -0.1276831,
+    zoom: 13,
+    zoomControl : true,
+    zoomControlOpt: {
+        style : 'SMALL',
+        position: 'TOP_LEFT'
+    },
+    panControl : false,
+  });
+map.addMarker({
+      lat: 49.119327,
+      lng: 6.17101,
+      title: 'Restaurant de Metz',
+      infoWindow: {
+        content: 'Restaurant de Metz' }
+    });
+    map.addMarker({
+      lat: 51.5007396,
+      lng: -0.1245299,
+      title: 'Big Ben',
+      infoWindow: {
+        content: '
+Big Ben is the nickname for the great bell of the clock at the north end of the Palace of Westminster in London, and often extended to refer to the clock and the clock tower, officially named Elizabeth Tower.
+'
+      }
+    });
+</script>
+</body>
+</html>
