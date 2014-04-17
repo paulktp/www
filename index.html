@@ -31,6 +31,7 @@
     // device APIs are available
 	var options = { timeout: 31000, enableHighAccuracy: true, maximumAge: 90000 };
     function onDeviceReady() {
+		var devicePlatform = device.platform;
         navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
     }
 	
@@ -98,7 +99,7 @@
 		
 	// pushwoosh
 	if(device.platform == "Android") {
-		alert(test);
+		alert("test");
 	function initPushwoosh(){
     var pushNotification = window.plugins.pushNotification;
     pushNotification.onDeviceReady();
