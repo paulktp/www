@@ -98,6 +98,7 @@
 		
 	// pushwoosh
 	if(device.platform == "Android") {
+		alert(test);
 	function initPushwoosh(){
     var pushNotification = window.plugins.pushNotification;
     pushNotification.onDeviceReady();
@@ -122,10 +123,8 @@
                                      
         navigator.notification.alert(title);
     });
-		} else {
-		alert("terminal ios");
 		}
-	
+	}
 
 
 			// Call this to register for push notifications and retreive a deviceToken
