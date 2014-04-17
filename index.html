@@ -4,23 +4,20 @@
 	<script src="phonegap.js"></script>	
   </head>
   <body onload="init();" style="background-color:FFCCFF">
-        <div class="app" >
+        <div class="app">
             <h1 style="text-align:center;"><img src="logo.png" /></h1>
             <div id="deviceready" class="blink" style="position:relative">
 				<p class="event received">
 		<div id="page" style="margin-left:15%">			
-			<div id="myDiv1" onClick= window.location.replace('http://www.thionville.fr/') style=" border: double 10px black; border-radius: 1em; height:28%; width:75%"></div>
+			<div id="myDiv1" onClick = "redirectKyouThionville();" style=" border: double 10px black; border-radius: 1em; height:28%; width:75%"></div>
 		</div>
 		<div id="page" style="margin-left:15%">
-			<div id="myDiv2" onClick= window.location.replace('http://www.kyousushi.com/') style=" border: double 10px white; border-radius: 1em; margin-top:8%; height:28%; width:75%"></div>
+			<div id="myDiv2" onClick = "redirectKyouMetz();" style=" border: double 10px white; border-radius: 1em; margin-top:8%; height:28%; width:75%"></div>
 		</div>
 		</div>
 	
-		</p>
-		<img src="location.png" onClick= window.location.replace('/map.html') style="width: 7%; height:5%"/>		
-		<img src="facebook.png" onClick= window.location.replace('https://www.facebook.com/KyouSushi') style="width: 7%; height:5%"/>
-		<img src="contact.png" onClick= window.location.replace('http://www.kyousushi.com/contact/') style="width: 7%; height:5%"/>
-	</div>
+		</p>	
+		<img src="img/facebook.png" onClick = "redirectKyouFB();" style="width: 8%; height:6%; float:right; margin-bottom:4%"/>
 </div>
 
 	<script type="text/javascript" src="PushNotification.js"></script>
@@ -36,6 +33,16 @@
     function onDeviceReady() {
         navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
     }
+	
+	function redirectKyouMetz() {	
+         var ref = window.open('pageMetz.html', '_blank', 'location=yes');
+	}
+	function redirectKyouThionville() {	
+         var ref = window.open('pageThionville.html', '_blank', 'location=yes');
+	}
+	function redirectKyouFB() {	
+         var ref = window.open('https://www.facebook.com/KyouSushi', '_blank', 'location=yes');
+	}
 
     // onSuccess Geolocation
     function onSuccess(position) {
@@ -58,12 +65,12 @@
 			element1.innerHTML = '<p style="text-align:center; margin-top:15%;">Restaurant de Thionville<br />Distance : ' + distTh + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
 			element2.style.backgroundColor = "black";
 			element1.style.backgroundColor = "white";}		
-    }
+    }	
 
     // onError Callback receives a PositionError object
     function onError(error) {
         alert('code: '    + error.code    + '\n' +
-              'message: ' + error.message + '\n');
+              'message: Les données du GPS doivent être accessibles pour que l\' application fonctionne correctement. </ br> Veuillez activer le GPS.\n');
     }
 	
 		var LatA = 41.3879169;
@@ -90,7 +97,7 @@
 		}
 		
 	// pushwoosh
-	if( /iPhone|iPad|iPod/i.test(navigator.userAgent) ) {
+	if(device.platform == "Android") {
 	function initPushwoosh(){
     var pushNotification = window.plugins.pushNotification;
     pushNotification.onDeviceReady();
@@ -117,12 +124,12 @@
     });
 		}
 	}
-	if( /Android/i.test(navigator.userAgent) ) {
+	if(device.platform == "iOS" ) {
 	function initPushwoosh() {
     var pushNotification = window.plugins.pushNotification;
     pushNotification.onDeviceReady();
      
-    pushNotification.registerDevice({alert:true, badge:true, sound:true, pw_appid:"C125D-81938", appname:"Kyou sushi"},
+    pushNotification.registerDevice({alert:true, badge:true, sound:true, pw_appid:"C125D-81938", appname:"Kyou"},
         function(status) {
             var deviceToken = status['deviceToken'];
             console.warn('registerDevice: ' + deviceToken);
