@@ -64,7 +64,12 @@
 			element2.innerHTML += '<p style="text-align:center; color:white">Restaurant de Metz<br />Distance : ' + distMe + 'km <br /><br />Cliquer ici pour plus d\'information</p>';				
 			element1.innerHTML = '<p style="text-align:center; margin-top:15%;">Restaurant de Thionville<br />Distance : ' + distTh + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
 			element2.style.backgroundColor = "black";
-			element1.style.backgroundColor = "white";}		
+			element1.style.backgroundColor = "white";}
+			if(device.platform == "Android") {
+				alert("android");
+			}else{
+				alert("ios");
+			}			
     }	
 
     // onError Callback receives a PositionError object
