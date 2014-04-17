@@ -26,10 +26,8 @@
 	<script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" charset="utf-8">
     // Wait for device API libraries to load
-	$(function(){
-  document.addEventListener("deviceready", onDeviceReady, false);
-  document.addEventListener("deviceready", initPushwoosh, true);
-	})
+    document.addEventListener("deviceready", onDeviceReady, false);
+	document.addEventListener("deviceready", initPushwoosh, true);
 
     // device APIs are available
 	var options = { timeout: 31000, enableHighAccuracy: true, maximumAge: 90000 };
