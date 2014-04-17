@@ -7,7 +7,7 @@ $(document).ready(function(){
     el: '#directions_map',
     lat: 49.357571,
     lng: 6.168425999999954,
-    zoom:14
+    zoom:12
   });
   GMaps.geolocate({
     success: function(position){
