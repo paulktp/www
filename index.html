@@ -2,6 +2,7 @@
   <head>
     <title>Kyousushi</title>	
 	<script src="phonegap.js"></script>	
+	<script src="cordova.js"></script>
   </head>
   <body onload="init();" style="background-color:FFCCFF">
         <div class="app">
@@ -19,7 +20,7 @@
 		</p>	
 		<img src="img/facebook.png" onClick = "redirectKyouFB();" style="width: 10%; height:7%; float:right; margin-bottom:4%"/>
 </div>
-	<script src="cordova.js"></script>
+	
 	<script type="text/javascript" src="PushNotification.js"></script>
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 	<script type="text/javascript" src="js/index.js"></script>
@@ -36,13 +37,13 @@
     }
 	
 	function redirectKyouMetz() {	
-         var ref = window.open('pageMetz.html', '_blank', 'location=yes');
+         var ref = window.open('pageMetz.html', '_self', 'location=yes');
 	}
 	function redirectKyouThionville() {	
-         var ref = window.open('pageThionville.html', '_blank', 'location=yes');
+         var ref = window.open('pageThionville.html', '_self', 'location=yes');
 	}
 	function redirectKyouFB() {	
-         var ref = window.open('https://www.facebook.com/KyouSushi', '_blank', 'location=yes');
+         var ref = window.open('https://www.facebook.com/KyouSushi', '_self', 'location=yes');
 	}
 
     // onSuccess Geolocation
