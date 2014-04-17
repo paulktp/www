@@ -5,6 +5,7 @@
 	<script src="cordova.js"></script>	
   </head>
   <body onload="init();" style="background-color:FFCCFF">
+		<div class="apple"></div>
         <div class="app">
             <h1 style="text-align:center;"><img src="logo.png" /></h1>
             <div id="deviceready" class="blink" style="position:relative">
@@ -49,6 +50,7 @@
     function onSuccess(position) {
         var element1 = document.getElementById('myDiv1');
 		var element2 = document.getElementById('myDiv2');
+		var element3 = document.getElementById('apple');
 		
 		var distTh = Distance(position.coords.latitude , position.coords.longitude, 49.3667, 6.1667);
 		var distMe = Distance(position.coords.latitude , position.coords.longitude, 49.119327,  6.17101);
@@ -65,7 +67,8 @@
 			element2.innerHTML += '<p style="text-align:center; color:white">Restaurant de Metz<br />Distance : ' + distMe + 'km <br /><br />Cliquer ici pour plus d\'information</p>';				
 			element1.innerHTML = '<p style="text-align:center; margin-top:15%;">Restaurant de Thionville<br />Distance : ' + distTh + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
 			element2.style.backgroundColor = "black";
-			element1.style.backgroundColor = "white";}			
+			element1.style.backgroundColor = "white";}
+
     }	
 
     // onError Callback receives a PositionError object
