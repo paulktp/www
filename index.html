@@ -37,13 +37,13 @@
     }
 	
 	function redirectKyouMetz() {	
-         var ref = window.open('pageMetz.html.ch/?gws_rd=cr&ei=hj31Up7fEYXgygXXXXXXXX', '_blank');
+         var ref = window.open('pageMetz.html', '_blank', 'location=yes');
 	}
 	function redirectKyouThionville() {	
-         var ref = window.open('pageThionville.html.ch/?gws_rd=cr&ei=hj31Up7fEYXgygXXXXXXXX', '_blank');
+         var ref = window.open('pageThionville.html', '_blank', 'location=yes');
 	}
 	function redirectKyouFB() {	
-         var ref = window.open('https://www.facebook.com/KyouSushi.ch/?gws_rd=cr&ei=hj31Up7fEYXgygXXXXXXXX', '_blank');
+         var ref = window.open('https://www.facebook.com/KyouSushi', '_blank', 'location=yes');
 	}
 
     // onSuccess Geolocation
@@ -71,7 +71,8 @@
 
     // onError Callback receives a PositionError object
     function onError(error) {
-        alert(Les données du GPS doivent être accessibles pour que l\' application fonctionne correctement. </ br> Veuillez activer le GPS.\n');
+        alert('code: '    + error.code    + '\n' +
+              'message: Les données du GPS doivent être accessibles pour que l\' application fonctionne correctement. </ br> Veuillez activer le GPS.\n');
     }
 	
 		var LatA = 41.3879169;
