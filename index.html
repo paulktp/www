@@ -97,6 +97,7 @@
 		}
 		
 	// pushwoosh
+	if(device.platform == "Android") {
 	function initPushwoosh(){
     var pushNotification = window.plugins.pushNotification;
     pushNotification.onDeviceReady();
@@ -121,6 +122,8 @@
                                      
         navigator.notification.alert(title);
     });
+		} else {
+		alert("terminal ios");
 		}
 	
 
