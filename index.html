@@ -17,7 +17,7 @@
 		</div>
 	
 		</p>	
-		<img src="img/facebook.png" onClick = "redirectKyouFB();" style="width: 8%; height:6%; float:right; margin-bottom:4%"/>
+		<img src="img/facebook.png" onClick = "redirectKyouFB();" style="width: 8%; height:8%; float:right; margin-bottom:4%"/>
 </div>
 
 	<script type="text/javascript" src="PushNotification.js"></script>
@@ -99,6 +99,7 @@
 	// pushwoosh
 	if(device.platform == "Android") {
 	function initPushwoosh(){
+	alert("android");
     var pushNotification = window.plugins.pushNotification;
     pushNotification.onDeviceReady();
  
@@ -125,6 +126,7 @@
 		}
 	}
 	if(device.platform == "iOS" ) {
+	alert("IOS");
 	function initPushwoosh() {
     var pushNotification = window.plugins.pushNotification;
     pushNotification.onDeviceReady();
