@@ -33,6 +33,7 @@
 	var devicePlatform = device.platform;
     function onDeviceReady() {
         navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
+		alert(device.name);
     }
 	
 	function redirectKyouMetz() {	
