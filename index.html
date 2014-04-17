@@ -2,6 +2,7 @@
   <head>
     <title>Kyousushi</title>	
 	<script src="phonegap.js"></script>	
+	<script src="cordova.js"></script>	
   </head>
   <body onload="init();" style="background-color:FFCCFF">
         <div class="app">
@@ -21,7 +22,6 @@
 </div>
 
 	<script type="text/javascript" src="PushNotification.js"></script>
-    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 	<script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" charset="utf-8">
     // Wait for device API libraries to load
@@ -70,9 +70,7 @@
 
     // onError Callback receives a PositionError object
     function onError(error) {
-        alert('code: '    + error.code    + '\n' +
-              'message: Les données du GPS doivent être accessibles pour que l\' application fonctionne correctement. </ br> Veuillez activer le GPS.\n');
-    }
+        alert('message: Les données du GPS doivent être accessibles pour que l\' application fonctionne correctement. </ br> Veuillez activer le GPS.\n');}
 	
 		var LatA = 41.3879169;
 		var LngB = 2.1699187;
