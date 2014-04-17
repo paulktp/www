@@ -4,7 +4,7 @@
 <widget xmlns  = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id = "com.kyousushi.ios"
-        version   = "2.0.0"
+        version = "2.0.0"
 		xml:lang="fr">
     <name>Kyou sushi</name>
 
@@ -23,7 +23,7 @@
         following tag to your config.xml; you will still have the INTERNET
         permission on your app, which PhoneGap requires.
     -->
-    <preference name="permissions"                value="none"/>
+    <preference name="permissions" value="none"/>
     <!--
         Enable individual API permissions here.
         The "device" permission is required for the 'deviceready' event.
