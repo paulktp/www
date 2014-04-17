@@ -2,7 +2,6 @@
   <head>
     <title>Kyousushi</title>	
 	<script src="phonegap.js"></script>	
-	<script src="cordova.js"></script>
   </head>
   <body onload="init();" style="background-color:FFCCFF">
         <div class="app">
@@ -20,7 +19,7 @@
 		</p>	
 		<img src="img/facebook.png" onClick = "redirectKyouFB();" style="width: 10%; height:7%; float:right; margin-bottom:4%"/>
 </div>
-	
+
 	<script type="text/javascript" src="PushNotification.js"></script>
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 	<script type="text/javascript" src="js/index.js"></script>
@@ -71,9 +70,9 @@
 
     // onError Callback receives a PositionError object
     function onError(error) {
-        alert('message: Les données du GPS doivent être accessibles pour que l\' application fonctionne correctement. Veuillez activer le GPS.\n');
-		navigator.exitApp();
-	}
+        alert('code: '    + error.code    + '\n' +
+              'message: Les données du GPS doivent être accessibles pour que l\' application fonctionne correctement. </ br> Veuillez activer le GPS.\n');
+    }
 	
 		var LatA = 41.3879169;
 		var LngB = 2.1699187;
