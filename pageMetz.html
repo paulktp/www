@@ -34,9 +34,8 @@
 <script>
     function modif(){
 	var element1 = document.getElementById('DivIpad');
-	element1.innerHTML = '<p>' + device.model + '</p><img src="img/picRestMetz.jpg" style="width: 100%; height:15%; margin-bottom:0%;"/>';
-	if(device.name == "iPad"){
-		element1.innerHTML = '<p>' + device.platform + '</p><img src="img/picRestMetz.jpg" style="width: 100%; height:15%; margin-bottom:0%;"/>';
+	if(device.model.indexOf('iPad') != -1){
+		element1.innerHTML = '<p>' + device.platform + '</p><img src="img/picRestMetz.jpg" style="width: 100%; height:30%; margin-bottom:0%;"/>';
 		}
 	}
 </script>
