@@ -98,7 +98,6 @@
 		}
 		
 	// pushwoosh
-	if(device.platform == "Android") {
 	function initPushwoosh(){
     var pushNotification = window.plugins.pushNotification;
     pushNotification.onDeviceReady();
@@ -124,9 +123,6 @@
         navigator.notification.alert(title);
     });
 		}
-	}
-
-
 			// Call this to register for push notifications and retreive a deviceToken
 			PushNotification.prototype.registerDevice = function(config, success, fail) {
 				cordova.exec(success, fail, "PushNotification", "registerDevice", config ? [config] : []);
