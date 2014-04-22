@@ -7,8 +7,7 @@
   <body style="background:url('img/fond2.png') 0 0 no-repeat; background-size: 100% 100%;">
         <div class="app">
             <h1 style="text-align:center;"><img src="logo.png" /></h1>
-            <div id="deviceready" class="blink" style="position:relative">
-				<p class="event received">
+            <div style="position:relative">
 		<div id="page" style="margin-left:15%">			
 			<div id="myDiv1" onClick = "redirectKyouThionville()" style=" border: solid 1px #996600; border-radius: 0.3em; height:28%; width:75%"></div>
 		</div>
@@ -16,8 +15,6 @@
 			<div id="myDiv2" onClick = "redirectKyouMetz()" style=" border: solid 1px #996600; border-radius: 0.3em; margin-top:8%; height:28%; width:75%"></div>
 		</div>
 		</div>
-	
-		</p>	
 		<img src="img/facebook.png" onClick = "redirectKyouFB()" style="width: 10%; height:7%; float:right; margin-bottom:4%"/>
 </div>
 
@@ -66,7 +63,6 @@
 			element1.style.backgroundColor = "white";
 			element2.style.backgroundColor = "white";
  }
- clearWatch();
  }
 
     // onError Callback receives a PositionError object
