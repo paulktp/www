@@ -4,7 +4,7 @@
 	<script src="phonegap.js"></script>	
 	<script src="cordova.js"></script>	
   </head>
-  <body onload="init();" style="background:url('img/fond2.png') 0 0 no-repeat; background-size: 100% 100%;">
+  <body style="background:url('img/fond2.png') 0 0 no-repeat; background-size: 100% 100%;">
         <div class="app">
             <h1 style="text-align:center;"><img src="logo.png" /></h1>
             <div id="deviceready" class="blink" style="position:relative">
@@ -35,15 +35,14 @@
 	}
 	
     // Wait for device API libraries to load
-
+		document.addEventListener("deviceready", onDeviceReady, false);
+		document.addEventListener("deviceready", initPushwoosh, true);
 
     // device APIs are available
 	var options = { timeout: 31000, enableHighAccuracy: true, maximumAge: 90000 };
 	alert(device.platform);
     function onDeviceReady() {
         navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
-		document.addEventListener("deviceready", onDeviceReady, false);
-		document.addEventListener("deviceready", initPushwoosh, true);
     }
 	
     // onSuccess Geolocation
