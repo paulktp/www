@@ -26,8 +26,10 @@
 	function modif(){
 		var element1 = document.getElementById('myDiv2');
 		if(device.model.indexOf('iPad') != -1){
-			element1.innerHTML = '<img src="img/picRestMetz.jpg" style="width: 100%; height:40%; position:absolute; bottom:0"/>';
-		}	
+			element1.innerHTML = '<p style="text-align:center; margin-top:10%;color:e2b500">ipad </p>';
+		}else{
+			element1.innerHTML = '<p style="text-align:center; margin-top:10%;color:e2b500">pas ipad </p>';
+		}
 	
 		function redirectKyouMetz() {	
          var ref = window.open('pageMetz.html', '_self', 'location=yes');
