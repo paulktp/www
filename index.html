@@ -11,15 +11,15 @@
             <div id="deviceready" class="blink" style="position:relative">
 				<p class="event received">
 		<div id="page" style="margin-left:15%">			
-			<div id="myDiv1" onClick = "redirectKyouThionville();" style=" border: double 10px black; border-radius: 1em; height:28%; width:75%"></div>
+			<div id="myDiv1" onClick = "redirectKyouThionville()" style=" border: double 10px black; border-radius: 1em; height:28%; width:75%"></div>
 		</div>
 		<div id="page" style="margin-left:15%">
-			<div id="myDiv2" onClick = "redirectKyouMetz();" style=" border: double 10px white; border-radius: 1em; margin-top:8%; height:28%; width:75%"></div>
+			<div id="myDiv2" onClick = "redirectKyouMetz()" style=" border: double 10px white; border-radius: 1em; margin-top:8%; height:28%; width:75%"></div>
 		</div>
 		</div>
 	
 		</p>	
-		<img src="img/facebook.png" onClick = "redirectKyouFB();" style="width: 10%; height:7%; float:right; margin-bottom:4%"/>
+		<img src="img/facebook.png" onClick = "redirectKyouFB()" style="width: 10%; height:7%; float:right; margin-bottom:4%"/>
 </div>
 
 	<script type="text/javascript" src="PushNotification.js"></script>
@@ -37,13 +37,13 @@
     }
 	
 	function redirectKyouMetz() {	
-         var ref = window.open('pageMetz.html', '_self', 'location=yes');
+         var ref = window.open('pageMetz.html', '_blank', 'location=yes');
 	}
 	function redirectKyouThionville() {	
-         var ref = window.open('pageThionville.html', '_self', 'location=yes');
+         var ref = window.open('pageThionville.html', '_blank', 'location=yes');
 	}
 	function redirectKyouFB() {	
-         var ref = window.open('https://www.facebook.com/KyouSushi', '_self', 'location=yes');
+         var ref = window.open('https://www.facebook.com/KyouSushi', '_blank', 'location=yes');
 	}
 
     // onSuccess Geolocation
@@ -54,22 +54,35 @@
 		
 		var distTh = Distance(position.coords.latitude , position.coords.longitude, 49.3667, 6.1667);
 		var distMe = Distance(position.coords.latitude , position.coords.longitude, 49.119327,  6.17101);
-
+		
+	if(device.model.indexOf('iPad') == -1){
 		if(parseFloat(distMe) > parseFloat(distTh)){
 			element1.innerHTML = '<p style="text-align:center; margin-top:10%;color:e2b500">Vous êtes plus proche du </p>';
 			element1.innerHTML += '<p style="text-align:center;">Restaurant de Thionville<br />Distance : ' + distTh + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
 			element2.innerHTML = '<p style="text-align:center; margin-top:15%; color:white">Restaurant de Metz<br />Distance : ' + distMe + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
 			element1.style.backgroundColor = "white";
 			element2.style.backgroundColor = "black";
-			} 
-		else{ 
+			}else{ 
 			element2.innerHTML = '<p style="text-align:center; margin-top:10%;color:e2b500">Vous êtes plus proche du </p>';
 			element2.innerHTML += '<p style="text-align:center; color:white">Restaurant de Metz<br />Distance : ' + distMe + 'km <br /><br />Cliquer ici pour plus d\'information</p>';				
-			element1.innerHTML = '<p style="text-align:center; margin-top:15%;">Restaurant de Thionville<br />Distance : ' + distTh + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
+			element1.innerHTML = '<p style="text-align:center; margin-top:15%">Restaurant de Thionville<br />Distance : ' + distTh + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
 			element2.style.backgroundColor = "black";
 			element1.style.backgroundColor = "white";}
-
-    }	
+	}else{
+		if(parseFloat(distMe) > parseFloat(distTh)){
+			element1.innerHTML = '<p style="text-align:center; margin-top:10%;color:e2b500; font-size:1.5em">Vous êtes plus proche du </p>';
+			element1.innerHTML += '<p style="text-align:center;">Restaurant de Thionville<br />Distance : ' + distTh + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
+			element2.innerHTML = '<p style="text-align:center; margin-top:15%; color:white; font-size:1.5em">Restaurant de Metz<br />Distance : ' + distMe + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
+			element1.style.backgroundColor = "white";
+			element2.style.backgroundColor = "black";
+			}else{ 
+			element2.innerHTML = '<p style="text-align:center; margin-top:10%;color:e2b500; font-size:1.5em">Vous êtes plus proche du </p>';
+			element2.innerHTML += '<p style="text-align:center; color:white">Restaurant de Metz<br />Distance : ' + distMe + 'km <br /><br />Cliquer ici pour plus d\'information</p>';				
+			element1.innerHTML = '<p style="text-align:center; margin-top:15%; font-size:1.5em">Restaurant de Thionville<br />Distance : ' + distTh + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
+			element2.style.backgroundColor = "black";
+			element1.style.backgroundColor = "white";}			
+	}
+  }	
 
     // onError Callback receives a PositionError object
     function onError(error) {
