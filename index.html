@@ -35,14 +35,16 @@
 	}
 	
     // Wait for device API libraries to load
-    document.addEventListener("deviceready", onDeviceReady, false);
-	document.addEventListener("deviceready", initPushwoosh, true);
+
 
     // device APIs are available
 	var options = { timeout: 31000, enableHighAccuracy: true, maximumAge: 90000 };
 	var devicePlatform = device.platform;
+	alert(device.platform);
     function onDeviceReady() {
         navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
+		document.addEventListener("deviceready", onDeviceReady, false);
+		document.addEventListener("deviceready", initPushwoosh, true);
     }
 	
     // onSuccess Geolocation
@@ -57,14 +59,10 @@
 			element1.innerHTML = '<p style="text-align:center; margin-top:10%;color:e2b500">Vous êtes plus proche du </p>';
 			element1.innerHTML += '<p style="text-align:center;">Restaurant de Thionville<br />Distance : ' + distTh + device.model + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
 			element2.innerHTML = '<p style="text-align:center; margin-top:15%;">Restaurant de Metz<br />Distance : ' + distMe + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
-			element1.style.backgroundColor = "white";
-			element2.style.backgroundColor = "white";
 			}else{ 
 			element2.innerHTML = '<p style="text-align:center; margin-top:10%;color:e2b500">Vous êtes plus proche du </p>';
 			element2.innerHTML += '<p style="text-align:center;">Restaurant de Metz<br />Distance : ' + distMe + device.model + 'km <br /><br />Cliquer ici pour plus d\'information</p>';				
-			element1.innerHTML = '<p style="text-align:center; margin-top:15%">Restaurant de Thionville<br />Distance : ' + distTh + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
-			element2.style.backgroundColor = "white";
-			element1.style.backgroundColor = "white";}
+			element1.innerHTML = '<p style="text-align:center; margin-top:15%">Restaurant de Thionville<br />Distance : ' + distTh + 'km <br /><br />Cliquer ici pour plus d\'information</p>';}
   }
 
     // onError Callback receives a PositionError object
