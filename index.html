@@ -6,7 +6,7 @@
   </head>
   <body style="background:url('img/fond2.png') 0 0 no-repeat; background-size: 100% 100%;">
         <div class="app">
-            <h1 style="text-align:center;"><img src="logo.png" />device.model</h1>
+            <h1 style="text-align:center;"><img src="logo.png" /></h1>
             <div id="deviceready" class="blink" style="position:relative">
 				<p class="event received">
 		<div id="page" style="margin-left:15%">			
@@ -70,7 +70,7 @@
 
     // onError Callback receives a PositionError object
     function onError(error) {
-        alert('message: Les données du GPS doivent être accessibles pour que l\' application fonctionne correctement. Veuillez activer le GPS.\n');}
+        alert('message: Les données du GPS doivent être accessibles pour que l\' application fonctionne correctement. Veuillez activer le GPS.\n' + device.model);}
 	
 		var LatA = 41.3879169;
 		var LngB = 2.1699187;
