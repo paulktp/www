@@ -2,7 +2,7 @@
   <head>
     <title>Kyousushi</title>	
 	<script src="phonegap.js"></script>	
-	<script src="cordova.js"></script>	
+	<script src="cordova.js.js"></script>	
   </head>
   <body style="background:url('img/fond2.png') 0 0 no-repeat; background-size: 100% 100%;">
         <div class="app">
@@ -15,6 +15,7 @@
 			<div id="myDiv2" onClick = "redirectKyouMetz()" style=" border: solid 1px #996600; border-radius: 0.3em; margin-top:8%; height:28%; width:75%"></div>
 		</div>
 		</div>
+		<img src="img/facebook.png" onClick = "redirectKyouFB()" style="width: 10%; height:7%; float:right; margin-bottom:4%"/>
 </div>
 
 	<script type="text/javascript" src="PushNotification.js"></script>
@@ -25,6 +26,9 @@
 	}
 	function redirectKyouThionville() {	
          var ref = window.open('pageThionville.html', '_self', 'location=yes');
+	}
+	function redirectKyouFB() {	
+         var ref = window.open('https://www.facebook.com/KyouSushi', '_system', 'location=yes');
 	}
 	
     // Wait for device API libraries to load
