@@ -23,7 +23,8 @@
 <p>Horaires :  Ouvert 7/7j de 12:00 à 15:00 et de 18:30 à 23:00</p>
 </div>
 
-<p style = "text-align:center;">Accès au site internet<a onClick = "redirectWebSite()" style="color:#e2b500"><br>cliquez ici</a></p>
+<div><p style = "text-align:center;">Accès au site internet<a onClick = "redirectWebSite()" style="color:#e2b500"><br>cliquez ici</a></p>
+<p style = "text-align:center;">Accès au facebook<a onClick = "redirectKyouFB()" style="color:blue"><br>cliquez ici</a></p></div>
 </section>
 
 <div id="DivIpad"></div>
@@ -50,6 +51,9 @@
 	function redirectWebSite() {	
          var ref = window.open('http://www.kyousushi.com', '_system', 'location=yes');
 	}	
+	function redirectKyouFB() {	
+         var ref = window.open('https://www.facebook.com/KyouSushi', '_system', 'location=yes');
+	}
 </script>
 </body>
 </html>
