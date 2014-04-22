@@ -4,7 +4,7 @@
 	<script src="phonegap.js"></script>	
 	<script src="cordova.js"></script>	
   </head>
-  <body onload="init();" background="img/fond.png" background-repeat="no-repeat">
+  <body onload="init();" style="background:url('img/fond.png') 0 0 no-repeat; background-size: 100% 100%;">
         <div class="app">
             <h1 style="text-align:center;"><img src="logo.png" /></h1>
             <div id="deviceready" class="blink" style="position:relative">
@@ -24,6 +24,16 @@
 	<script type="text/javascript" src="PushNotification.js"></script>
 	<script type="text/javascript" src="js/index.js"></script>
     <script>
+		function redirectKyouMetz() {	
+         var ref = window.open('pageMetz.html', '_self', 'location=yes');
+	}
+	function redirectKyouThionville() {	
+         var ref = window.open('pageThionville.html', '_self', 'location=yes');
+	}
+	function redirectKyouFB() {	
+         var ref = window.open('https://www.facebook.com/KyouSushi', '_system', 'location=yes');
+	}
+	
     // Wait for device API libraries to load
     document.addEventListener("deviceready", onDeviceReady, false);
 	document.addEventListener("deviceready", initPushwoosh, true);
@@ -35,16 +45,6 @@
         navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
     }
 	
-	function redirectKyouMetz() {	
-         var ref = window.open('pageMetz.html', '_self', 'location=yes');
-	}
-	function redirectKyouThionville() {	
-         var ref = window.open('pageThionville.html', '_self', 'location=yes');
-	}
-	function redirectKyouFB() {	
-         var ref = window.open('https://www.facebook.com/KyouSushi', '_system', 'location=yes');
-	}
-
     // onSuccess Geolocation
     function onSuccess(position) {
         var element1 = document.getElementById('myDiv1');
