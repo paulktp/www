@@ -34,8 +34,9 @@
 	}
 	
     // Wait for device API libraries to load
+	function init() {
     document.addEventListener("deviceready", onDeviceReady, false);
-	document.addEventListener("deviceready", initPushwoosh, true);
+	document.addEventListener("deviceready", initPushwoosh, true);}
 
     // device APIs are available
 	var options = { timeout: 31000, enableHighAccuracy: true, maximumAge: 90000 };
