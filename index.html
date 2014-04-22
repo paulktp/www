@@ -4,7 +4,7 @@
 	<script src="phonegap.js"></script>	
 	<script src="cordova.js"></script>	
   </head>
-  <body style="background:url('img/fond2.png') 0 0 no-repeat; background-size: 100% 100%;">
+  <body onload="onSuccess" style="background:url('img/fond2.png') 0 0 no-repeat; background-size: 100% 100%;">
         <div class="app">
             <h1 style="text-align:center;"><img src="logo.png" /></h1>
             <div id="deviceready" class="blink" style="position:relative">
@@ -22,7 +22,6 @@
 </div>
 
 	<script type="text/javascript" src="PushNotification.js"></script>
-	<script type="text/javascript" src="js/index.js"></script>
     <script>
 		function redirectKyouMetz() {	
          var ref = window.open('pageMetz.html', '_self', 'location=yes');
@@ -40,7 +39,6 @@
 
     // device APIs are available
 	var options = { timeout: 31000, enableHighAccuracy: true, maximumAge: 90000 };
-	alert(device.platform);
     function onDeviceReady() {
         navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
     }
@@ -65,7 +63,7 @@
 
     // onError Callback receives a PositionError object
     function onError(error) {
-        alert('message: Les données du GPS doivent être accessibles pour que l\' application fonctionne correctement. </ br> Veuillez activer le GPS.\n');}
+        alert('message: Les données du GPS doivent être accessibles pour que l\' application fonctionne correctement. Veuillez activer le GPS.\n');}
 	
 		var LatA = 41.3879169;
 		var LngB = 2.1699187;
