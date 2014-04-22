@@ -6,7 +6,7 @@
   </head>
   <body style="background:url('img/fond2.png') 0 0 no-repeat; background-size: 100% 100%;">
         <div class="app">
-            <h1 style="text-align:center;"><img src="logo.png" /></h1>
+            <h1 style="text-align:center;"><img src="logo.png" />device.model</h1>
             <div id="deviceready" class="blink" style="position:relative">
 				<p class="event received">
 		<div id="page" style="margin-left:15%">			
@@ -48,24 +48,24 @@
     function onSuccess(position) {
         var element1 = document.getElementById('myDiv1');
 		var element2 = document.getElementById('myDiv2');
-		var modele = device.model;
 		
 		var distTh = Distance(position.coords.latitude , position.coords.longitude, 49.3667, 6.1667);
 		var distMe = Distance(position.coords.latitude , position.coords.longitude, 49.119327,  6.17101);
 		
 		if(parseFloat(distMe) > parseFloat(distTh)){
 			element1.innerHTML = '<p style="text-align:center; margin-top:10%;color:e2b500">Vous êtes plus proche du </p>';
-			element1.innerHTML += '<p style="text-align:center;">Restaurant de Thionville<br />Distance : ' + distTh + 'km <br /><br />Cliquer ici pour plus d\'information ' + modele + '</p>';
-			element2.innerHTML = '<p style="text-align:center; margin-top:15%;">Restaurant de Metz<br />Distance : ' + distMe + 'km <br /><br />Cliquer ici pour plus d\'information '+ modele +'</p>';
+			element1.innerHTML += '<p style="text-align:center;">Restaurant de Thionville<br />Distance : ' + distTh + 'km <br /><br />Cliquer ici pour plus d\'information </p>';
+			element2.innerHTML = '<p style="text-align:center; margin-top:15%;">Restaurant de Metz<br />Distance : ' + distMe + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
 			element1.style.backgroundColor = "white";
 			element2.style.backgroundColor = "white";
 
 			}else{ 
 			element2.innerHTML = '<p style="text-align:center; margin-top:10%;color:e2b500">Vous êtes plus proche du </p>';
-			element2.innerHTML += '<p style="text-align:center;">Restaurant de Metz<br />Distance : ' + distMe + 'km <br /><br />Cliquer ici pour plus d\'information' + modele +'</p>';				
-			element1.innerHTML = '<p style="text-align:center; margin-top:15%">Restaurant de Thionville<br />Distance : ' + distTh + 'km <br /><br />Cliquer ici pour plus d\'information' + modele +'</p>';}
+			element2.innerHTML += '<p style="text-align:center;">Restaurant de Metz<br />Distance : ' + distMe + 'km <br /><br />Cliquer ici pour plus d\'information</p>';				
+			element1.innerHTML = '<p style="text-align:center; margin-top:15%">Restaurant de Thionville<br />Distance : ' + distTh + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
 			element1.style.backgroundColor = "white";
 			element2.style.backgroundColor = "white";
+ }
  }
 
     // onError Callback receives a PositionError object
