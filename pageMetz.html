@@ -40,12 +40,12 @@
 		element1.innerHTML = '<img src="img/picRestMetz.jpg" style="width: 100%; height:40%; position:absolute; bottom:0"/>';
 		}
 	if(device.platform == 'iOS'){
-			element2.innerHTML = '<div style="float:right; border:6px solid #FF99FF; border-radius:1em"><p onClick = "redirectIndex()">Retour</p></div>';
+			element2.innerHTML = '<div style="float:right; border:1px solid #996600; border-radius:0.5em"><p onClick = "redirectIndex()">Retour</p></div>';
 	}
 }
 
 	function redirectIndex() {	
-         var ref = window.open('index.html', '_blank', 'location=yes');
+         var ref = window.open('index.html', '_self', 'location=yes');
 	}
 	function redirectWebSite() {	
          var ref = window.open('http://www.kyousushi.com', '_system', 'location=yes');
