@@ -1,7 +1,7 @@
 <html>
   <head>
     <title>Kyousushi</title>	
-	<script src="cordova.js.js"></script>
+	<script src="cordova.js"></script>
 	<script src="phonegap.js"></script>		
   </head>
   <body onload="init();" style="background:url('img/fond2.png') 0 0 no-repeat; background-size: 100% 100%;">
@@ -10,7 +10,7 @@
             <div id="deviceready" class="blink" style="position:relative">
 				<p class="event received">
 		<div id="page" style="margin-left:15%">			
-			<div id="myDiv1" onClick = "redirectKyouThionville()" style=" border: solid 1px #996600; border-radius: 0.5em; height:28%; width:75%"></div>
+			<div id="myDiv1" onClick = "redirectKyouThionville()" style=" border: solid 1px #996600; border-radius: 0.5em; height:28%; width:75%; margin-top:15%"></div>
 		</div>
 		<div id="page" style="margin-left:15%">
 			<div id="myDiv2" onClick = "redirectKyouMetz()" style=" border: solid 1px #996600; border-radius: 0.5em; margin-top:8%; height:28%; width:75%"></div>
@@ -24,7 +24,7 @@
 	<script type="text/javascript" src="PushNotification.js"></script>
 	<script type="text/javascript" src="js/index.js"></script>
     <script>
-		function redirectKyouMetz() {	
+	function redirectKyouMetz() {	
          var ref = window.open('pageMetz.html', '_self', 'location=yes');
 	}
 	function redirectKyouThionville() {	
