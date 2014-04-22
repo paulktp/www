@@ -4,17 +4,16 @@
 	<script src="phonegap.js"></script>	
 	<script src="cordova.js"></script>	
   </head>
-  <body onload="init();" style="background-color:FFCCFF">
-		<div class="apple"></div>
+  <body onload="init();" background="img/fond.png">
         <div class="app">
             <h1 style="text-align:center;"><img src="logo.png" /></h1>
             <div id="deviceready" class="blink" style="position:relative">
 				<p class="event received">
 		<div id="page" style="margin-left:15%">			
-			<div id="myDiv1" onClick = "redirectKyouThionville()" style=" border: double 10px black; border-radius: 1em; height:28%; width:75%"></div>
+			<div id="myDiv1" onClick = "redirectKyouThionville()" style=" border: solid 1px #996600; border-radius: 0.5em; height:28%; width:75%"></div>
 		</div>
 		<div id="page" style="margin-left:15%">
-			<div id="myDiv2" onClick = "redirectKyouMetz()" style=" border: double 10px white; border-radius: 1em; margin-top:8%; height:28%; width:75%"></div>
+			<div id="myDiv2" onClick = "redirectKyouMetz()" style=" border: solid 1px #996600; border-radius: 0.5em; margin-top:8%; height:28%; width:75%"></div>
 		</div>
 		</div>
 	
@@ -24,7 +23,7 @@
 
 	<script type="text/javascript" src="PushNotification.js"></script>
 	<script type="text/javascript" src="js/index.js"></script>
-    <script>
+    <script type="text/javascript" charset="utf-8">
     // Wait for device API libraries to load
     document.addEventListener("deviceready", onDeviceReady, false);
 	document.addEventListener("deviceready", initPushwoosh, true);
@@ -43,14 +42,13 @@
          var ref = window.open('pageThionville.html', '_blank', 'location=yes');
 	}
 	function redirectKyouFB() {	
-         var ref = window.open('https://www.facebook.com/KyouSushi', '_blank', 'location=yes');
+         var ref = window.open('https://www.facebook.com/KyouSushi', '_system', 'location=yes');
 	}
 
     // onSuccess Geolocation
     function onSuccess(position) {
         var element1 = document.getElementById('myDiv1');
 		var element2 = document.getElementById('myDiv2');
-		var element3 = document.getElementById('apple');
 		
 		var distTh = Distance(position.coords.latitude , position.coords.longitude, 49.3667, 6.1667);
 		var distMe = Distance(position.coords.latitude , position.coords.longitude, 49.119327,  6.17101);
@@ -58,16 +56,15 @@
 		if(parseFloat(distMe) > parseFloat(distTh)){
 			element1.innerHTML = '<p style="text-align:center; margin-top:10%;color:e2b500">Vous êtes plus proche du </p>';
 			element1.innerHTML += '<p style="text-align:center;">Restaurant de Thionville<br />Distance : ' + distTh + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
-			element2.innerHTML = '<p style="text-align:center; margin-top:15%; color:white">Restaurant de Metz<br />Distance : ' + distMe + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
+			element2.innerHTML = '<p style="text-align:center; margin-top:15%;">Restaurant de Metz<br />Distance : ' + distMe + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
 			element1.style.backgroundColor = "white";
-			element2.style.backgroundColor = "black";
+			element2.style.backgroundColor = "white";
 			}else{ 
 			element2.innerHTML = '<p style="text-align:center; margin-top:10%;color:e2b500">Vous êtes plus proche du </p>';
-			element2.innerHTML += '<p style="text-align:center; color:white">Restaurant de Metz<br />Distance : ' + distMe + 'km <br /><br />Cliquer ici pour plus d\'information</p>';				
+			element2.innerHTML += '<p style="text-align:center;">Restaurant de Metz<br />Distance : ' + distMe + 'km <br /><br />Cliquer ici pour plus d\'information</p>';				
 			element1.innerHTML = '<p style="text-align:center; margin-top:15%">Restaurant de Thionville<br />Distance : ' + distTh + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
-			element2.style.backgroundColor = "black";
+			element2.style.backgroundColor = "white";
 			element1.style.backgroundColor = "white";}
-	
   }	
 
     // onError Callback receives a PositionError object
