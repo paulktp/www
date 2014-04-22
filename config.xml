@@ -31,6 +31,7 @@
     <feature name="http://api.phonegap.com/1.0/device" />
 	<feature name="http://api.phonegap.com/1.0/geolocation"/>
 	<feature name="PushNotification"><param name="ios-package" value="PushNotification" /></feature>
+	<feature name="InAppBrowser"><param name="ios-package" value="CDVInAppBrowser" /></feature>
 
 
 
@@ -144,4 +145,5 @@
 	<gap:platform name="ios" />
 	<gap:platform name="android" />
 
+	<plugin name="InAppBrowser" value="CDVInAppBrowser" />
 </widget>
