@@ -66,8 +66,9 @@
 <script src="main.js"></script>
 <script>
     function modif(){
-		function onDeviceReady() {
-	}
+		$(function(){
+			document.addEventListener("deviceready", onDeviceReady, false);
+		});
 	var element1 = document.getElementById('DivIpad');
 	var element2 = document.getElementById('ret');
 	if(device.model.indexOf('iPad') != -1){
