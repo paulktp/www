@@ -20,9 +20,12 @@
 <div style= "text-align:center; font-size:0.8em;" class="souscontainer">
 <p>Adresse : 6 Rue du Moyen Pont, 57000 Metz</p>
 <p>Téléphone : 03 87 66 83 52</p>
-<p id="DivIpad">Horaires :  Ouvert 7/7j de 12:00 à 15:00 et de 18:30 à 23:00</p>
+<p>Horaires :  Ouvert 7/7j de 12:00 à 15:00 et de 18:30 à 23:00</p>
+<p id="test1"></p>
+<p id="test1"></p>
 </div>
 </section>
+<div id="DivIpad"></div>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
@@ -30,6 +33,56 @@
 <script src="coreM.js"></script>
 <script src="main.js"></script>
 <script>
+// Wait for device API libraries to load
+	function init() {	
+    document.addEventListener("deviceready", onDeviceReady, false);}
+
+    // device APIs are available
+	var options = { timeout: 31000, enableHighAccuracy: true, maximumAge: 90000 };
+	var devicePlatform = device.platform;
+    function onDeviceReady() {
+        navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
+		
+		if(device.platform == 'iOS'){ initPushwooshiOS();}
+		if(device.platform == 'Android'){ initPushwooshAndroid();}
+    }
+	
+    // onSuccess Geolocation
+    function onSuccess(position) {
+        var element3 = document.getElementById('test1');
+		var element4 = document.getElementById('test2');
+		
+		var distTh = Distance(position.coords.latitude , position.coords.longitude, 49.3667, 6.1667);
+		var distMe = Distance(position.coords.latitude , position.coords.longitude, 49.119327,  6.17101);
+	if(device.model.indexOf('iPad') == -1){
+		if(parseFloat(distMe) > parseFloat(distTh)){
+			element3.innerHTML = '<p style="text-align:center; margin-top:10%;color:e2b500">Vous êtes plus proche du </p>';
+			element3.innerHTML += '<p style="text-align:center;">Restaurant de Thionville<br />Distance : ' + distTh + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
+			element4.innerHTML = '<p style="text-align:center; margin-top:15%;">Restaurant de Metz<br />Distance : ' + distMe + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
+			element3.style.backgroundColor = "white";
+			element4.style.backgroundColor = "white";
+		}else{ 
+			element4.innerHTML = '<p style="text-align:center; margin-top:10%;color:e2b500">Vous êtes plus proche du </p>';
+			element4.innerHTML += '<p style="text-align:center;">Restaurant de Metz<br />Distance : ' + distMe + 'km <br /><br />Cliquer ici pour plus d\'information</p>';				
+			element3.innerHTML = '<p style="text-align:center; margin-top:15%">Restaurant de Thionville<br />Distance : ' + distTh + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
+			element4.style.backgroundColor = "white";
+			element3.style.backgroundColor = "white";}
+	}else{
+		if(parseFloat(distMe) > parseFloat(distTh)){
+			element3.innerHTML = '<p style="text-align:center; margin-top:10%;color:e2b500; font-size:2em">Vous êtes plus proche du </p>';
+			element3.innerHTML += '<p style="text-align:center; font-size:2em">Restaurant de Thionville<br />Distance : ' + distTh + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
+			element4.innerHTML = '<p style="text-align:center; margin-top:15%; font-size:2em">Restaurant de Metz<br />Distance : ' + distMe + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
+			element3.style.backgroundColor = "white";
+			element4.style.backgroundColor = "white";
+		}else{ 
+			element4.innerHTML = '<p style="text-align:center; margin-top:10%;color:e2b500; font-size:2em">Vous êtes plus proche du </p>';
+			element4.innerHTML += '<p style="text-align:center; font-size:2em">Restaurant de Metz<br />Distance : ' + distMe + 'km <br /><br />Cliquer ici pour plus d\'information</p>';				
+			element3.innerHTML = '<p style="text-align:center; margin-top:15%; font-size:2em">Restaurant de Thionville<br />Distance : ' + distTh + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
+			element4.style.backgroundColor = "white";
+			element3.style.backgroundColor = "white";}
+	
+	}
+}
 	var element1 = document.getElementById('DivIpad');
 	var element2 = document.getElementById('ret');
 	if(device.model.indexOf('iPad') != -1){
