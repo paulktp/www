@@ -1,3 +1,12 @@
+// Wait for device API libraries to load
+	function init() {	
+    document.addEventListener("deviceready", onDeviceReady, false);}
+
+// device APIs are available
+	var options = { timeout: 31000, enableHighAccuracy: true, maximumAge: 90000 };
+    function onDeviceReady() {
+        navigator.geolocation.getCurrentPosition(onSuccess, onError, options);}
+		
 var map;
 $(document).ready(function(){
   var map = new GMaps({
@@ -6,8 +15,8 @@ $(document).ready(function(){
     lng: 6.176905000000033,
     zoom: 12
   });
-  GMaps.geolocate({
-    success: function(position){
+  
+    function onSuccess(position) {
       map.setCenter(position.coords.latitude, position.coords.longitude);
 	    map.addMarker({
 			lat: position.coords.latitude,
@@ -24,14 +33,7 @@ $(document).ready(function(){
         strokeOpacity: 0.6,
         strokeWeight: 6
       });
-    },
-    error: function(error){
-      alert('Geolocation failed: '+error.message);
-    },
-    not_supported: function(){
-      alert("Your browser does not support geolocation");
-    }
-  });
+    };
     map.addMarker({
       lat: 49.119327,
       lng: 6.17101,
