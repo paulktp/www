@@ -167,10 +167,12 @@ var GMaps = (function(global) {
           style: 'DEFAULT',
           position: 'TOP_LEFT'
         },
+        zoomControlStyle = zoomControlOpt.style || 'DEFAULT',
+        zoomControlPosition = zoomControlOpt.position || 'TOP_LEFT',
         panControl = options.panControl || false,
         mapTypeControl = options.mapTypeControl || false,
         scaleControl = options.scaleControl || false,
-        streetViewControl = options.streetViewControl || true,
+        streetViewControl = options.streetViewControl || false,
         overviewMapControl = overviewMapControl || false,
         map_options = {},
         map_base_options = {
