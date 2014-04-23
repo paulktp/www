@@ -31,13 +31,6 @@
 <script src="coreM.js"></script>
 <script src="main.js"></script>
 <script>
-	function init() {	
-    document.addEventListener("deviceready", onDeviceReady, false);}
-
-    // device APIs are available
-	var options = { timeout: 31000, enableHighAccuracy: true, maximumAge: 90000 };
-    function onDeviceReady() {
-        navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
 	var element1 = document.getElementById('DivIpad');
 	var element2 = document.getElementById('ret');
 	if(device.model.indexOf('iPad') != -1){
@@ -46,7 +39,7 @@
 	if(device.platform == 'iOS'){
 			element2.innerHTML = '<p onClick = "redirectIndex()" style="margin-left:3%; margin-top:5%; color:black; text-decoration: underline;">Retour</p>';
 	}
-}
+
 
 	function redirectIndex() {	
          var ref = window.open('index.html', '_self', 'location=yes');

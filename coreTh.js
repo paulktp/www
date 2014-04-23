@@ -1,9 +1,6 @@
-/**
- * Directions to London
- */
-var map1;
+var map;
 $(document).ready(function(){
-  var map1 = new GMaps({
+  var map = new GMaps({
     el: '#directions_map',
     lat: 49.357571,
     lng: 6.168425999999954,
@@ -11,15 +8,15 @@ $(document).ready(function(){
   });
   GMaps.geolocate({
     success: function(position){
-      map1.setCenter(position.coords.latitude, position.coords.longitude);
-	  	    map1.addMarker({
+      map.setCenter(position.coords.latitude, position.coords.longitude);
+	  	    map.addMarker({
 			lat: position.coords.latitude,
 			lng: position.coords.longitude,
 			title: 'You are here.',
 			infoWindow: {
 			content: 'Vous êtes ici'}
 		});
-       map1.drawRoute({
+       map.drawRoute({
         origin: [position.coords.latitude, position.coords.longitude],
         destination: [49.119327, 6.17101],
         travelMode: 'driving',
@@ -35,7 +32,7 @@ $(document).ready(function(){
       alert("Your browser does not support geolocation");
     }
   });
-    map1.addMarker({
+    map.addMarker({
       lat: 49.119327,
       lng: 6.17101,
       title: 'Kyou sushi Thionville',

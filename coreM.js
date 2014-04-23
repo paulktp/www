@@ -6,24 +6,24 @@ function onDeviceReady() {
     navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
 	}
 	
-var map2;
+var map;
 $(document).ready(function(){
-  var map2 = new GMaps({
+  var map = new GMaps({
     el: '#directions_map',
     lat: 49.119666,
     lng: 6.176905000000033,
     zoom: 12
   });
     function onSuccess(position) {
-      map2.setCenter(position.coords.latitude, position.coords.longitude);
-	    map2.addMarker({
+      map.setCenter(position.coords.latitude, position.coords.longitude);
+	    map.addMarker({
 			lat: position.coords.latitude,
 			lng: position.coords.longitude,
 			title: 'You are here.',
 			infoWindow: {
 			content: 'Vous êtes ici'}
 		});
-       map2.drawRoute({
+       map.drawRoute({
         origin: [position.coords.latitude, position.coords.longitude],
         destination: [49.119327, 6.17101],
         travelMode: 'driving',
@@ -38,7 +38,7 @@ $(document).ready(function(){
     not_supported: function(){
       alert("Your browser does not support geolocation");
     };
-    map2.addMarker({
+    map.addMarker({
       lat: 49.119327,
       lng: 6.17101,
       title: 'Kyou sushi Metz',
