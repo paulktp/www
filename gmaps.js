@@ -1,6 +1,3 @@
-	function initial() {	
-    document.addEventListener("deviceready", onDeviceReady, false);}
-	
 (function(root, factory) {
   if(typeof exports === 'object') {
     module.exports = factory();

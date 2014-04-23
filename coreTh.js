@@ -1,3 +1,10 @@
+	function initial() {	
+    document.addEventListener("deviceready", onDeviceReady, false);}
+	
+    function onDeviceReady() {
+        navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
+    }	
+	
 var map;
 $(document).ready(function(){
   var map = new GMaps({
@@ -6,9 +13,8 @@ $(document).ready(function(){
     lng: 6.168425999999954,
     zoom:12
   });
-  GMaps.geolocate({
-    success: function(position){
-      map.setCenter(position.coords.latitude, position.coords.longitude);
+  
+	map.setCenter(position.coords.latitude, position.coords.longitude);
 	  	    map.addMarker({
 			lat: position.coords.latitude,
 			lng: position.coords.longitude,
@@ -24,14 +30,13 @@ $(document).ready(function(){
         strokeOpacity: 0.6,
         strokeWeight: 6
       });
-    },
+	  
     error: function(error){
       alert('Geolocation failed: '+error.message);
     },
     not_supported: function(){
       alert("Your browser does not support geolocation");
-    }
-  });
+    };
     map.addMarker({
       lat: 49.119327,
       lng: 6.17101,
