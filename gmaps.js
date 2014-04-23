@@ -162,7 +162,7 @@ var GMaps = (function(global) {
         markerClustererFunction = options.markerClusterer,
         mapType = google.maps.MapTypeId[options.mapType.toUpperCase()],
         map_center = new google.maps.LatLng(options.lat, options.lng),
-        zoomControl = options.zoomControl || true,
+        zoomControl = options.zoomControl || false,
         zoomControlOpt = options.zoomControlOpt || {
           style: 'DEFAULT',
           position: 'TOP_LEFT'
@@ -172,7 +172,7 @@ var GMaps = (function(global) {
         panControl = options.panControl || false,
         mapTypeControl = options.mapTypeControl || false,
         scaleControl = options.scaleControl || false,
-        streetViewControl = options.streetViewControl || false,
+        streetViewControl = options.streetViewControl || true,
         overviewMapControl = overviewMapControl || false,
         map_options = {},
         map_base_options = {
