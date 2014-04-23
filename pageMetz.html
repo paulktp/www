@@ -41,14 +41,14 @@
     }
 	
 	    //
-		var lat;
+		var lati;
 		var longi;
     function onSuccess(position) {
         var element = document.getElementById('geolocation');
         element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
                             'Longitude: '          + position.coords.longitude             + '<br />';
 							
-		lat = position.coords.latitude;
+		lati = position.coords.latitude;
 		longi = position.coords.longitude ;
     }
 
@@ -89,17 +89,17 @@ $(document).ready(function(){
     zoom: 12
   });
   GMaps.geolocate({
-    success: function(pos){
-      map.setCenter(position.coords.latitude, position.coords.longitude);
+    success: function(position){
+      map.setCenter(lati, longi);
 	    map.addMarker({
-			lat: position.coords.latitude,
-			lng: position.coords.longitude,
+			lat: lati,
+			lng: longi,
 			title: 'You are here.',
 			infoWindow: {
 			content: 'Vous êtes ici'}
 		});
        map.drawRoute({
-        origin: [position.coords.latitude, position.coords.longitude],
+        origin: [lati, longi],
         destination: [49.119327, 6.17101],
         travelMode: 'driving',
         strokeColor: '#000',
