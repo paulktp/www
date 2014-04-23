@@ -5,12 +5,41 @@
 <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
 <title style="margin-top:5%">Detail dur le restaurant de Metz</title>
 	<script src="phonegap.js"></script>	
+	<style type="text/css">
+	.ret {
+  background: #a4d9fc;
+  background-image: -webkit-linear-gradient(top, #a4d9fc, #59a8d9);
+  background-image: -moz-linear-gradient(top, #a4d9fc, #59a8d9);
+  background-image: -ms-linear-gradient(top, #a4d9fc, #59a8d9);
+  background-image: -o-linear-gradient(top, #a4d9fc, #59a8d9);
+  background-image: linear-gradient(to bottom, #a4d9fc, #59a8d9);
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.ret:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+</style>
+
 
 </head>
 <body onload="modif()" style="background:url('img/fond2.png') 0 0 no-repeat; background-size: 100% 100%;">
 <section class="container">
 	<div class="">
-	<div id="ret"></div>
+	<div id="ret" class="ret"></div>
 		<h2 style="text-align:center; margin-bottom:10%; margin-top:5%">Restaurant de Metz</h2>
 		<div id="directions_map" class="map"></div>
 	</div>
