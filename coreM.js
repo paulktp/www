@@ -1,4 +1,24 @@
   document.addEventListener("deviceready", onDeviceReady, false);
+ 
+	var element1 = document.getElementById('DivIpad');
+	var element2 = document.getElementById('ret');
+	if(device.model.indexOf('iPad') != -1){
+		element1.innerHTML = '<img src="img/picRestMetz.jpg" style="width: 100%; height:38%; position:relative; bottom:0px"/>';
+		}
+	if(device.platform == 'iOS'){
+			element2.innerHTML = '<p onClick = "redirectIndex()" style="margin-left:3%; margin-top:5%; color:black; text-decoration: underline;">Retour</p>';
+	}
+
+
+	function redirectIndex() {	
+         var ref = window.open('index.html', '_self', 'location=yes');
+	}
+	function redirectWebSite() {	
+         var ref = window.open('http://www.kyousushi.com', '_system', 'location=yes');
+	}	
+	function redirectKyouFB() {	
+         var ref = window.open('https://www.facebook.com/KyouSushi', '_system', 'location=yes');
+	}
 
     // Cordova is ready
     //
@@ -6,8 +26,6 @@
     function onDeviceReady() {
        pos = navigator.geolocation.getCurrentPosition(onSuccess, onError);
     }
-	
-	    //
 		var lati;
 		var longi;
     function onSuccess(position) {
@@ -62,26 +80,3 @@
         alert('code: '    + error.code    + '\n' +
                 'message: ' + error.message + '\n');
     }
-
-
-	var element1 = document.getElementById('DivIpad');
-	var element2 = document.getElementById('ret');
-	if(device.model.indexOf('iPad') != -1){
-		element1.innerHTML = '<img src="img/picRestMetz.jpg" style="width: 100%; height:38%; position:relative; bottom:0px"/>';
-		}
-	if(device.platform == 'iOS'){
-			element2.innerHTML = '<p onClick = "redirectIndex()" style="margin-left:3%; margin-top:5%; color:black; text-decoration: underline;">Retour</p>';
-	}
-
-
-	function redirectIndex() {	
-         var ref = window.open('index.html', '_self', 'location=yes');
-	}
-	function redirectWebSite() {	
-         var ref = window.open('http://www.kyousushi.com', '_system', 'location=yes');
-	}	
-	function redirectKyouFB() {	
-         var ref = window.open('https://www.facebook.com/KyouSushi', '_system', 'location=yes');
-	}
-	
-
