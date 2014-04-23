@@ -1,6 +1,3 @@
-/**
- * Directions to London
- */
 var map;
 $(document).ready(function(){
   var map = new GMaps({
@@ -9,18 +6,18 @@ $(document).ready(function(){
     lng: 6.168425999999954,
     zoom:12
   });
-  GMaps.geolocate({
+
     success: function(position){
-      map.setCenter(position.coords.latitude, position.coords.longitude);
+      map.setCenter(getLatitude(position), getLongitude(position));
 	  	    map.addMarker({
-			lat: position.coords.latitude,
-			lng: position.coords.longitude,
+			lat: getLatitude(position),
+			lng: getLongitude(position),
 			title: 'You are here.',
 			infoWindow: {
 			content: 'Vous êtes ici'}
 		});
        map.drawRoute({
-        origin: [position.coords.latitude, position.coords.longitude],
+        origin: [getLatitude(position), getLongitude(position)],
         destination: [49.119327, 6.17101],
         travelMode: 'driving',
         strokeColor: '#000',
@@ -28,13 +25,7 @@ $(document).ready(function(){
         strokeWeight: 6
       });
     },
-    error: function(error){
-      alert('Geolocation failed: '+error.message);
-    },
-    not_supported: function(){
-      alert("Your browser does not support geolocation");
-    }
-  });
+	
     map.addMarker({
       lat: 49.119327,
       lng: 6.17101,
