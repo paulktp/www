@@ -19,7 +19,7 @@ $(document).ready(function(){
 			infoWindow: {
 			content: 'Vous êtes ici'}
 		});
-       map.drawRoute({
+       map2.drawRoute({
         origin: [position.coords.latitude, position.coords.longitude],
         destination: [49.119327, 6.17101],
         travelMode: 'driving',

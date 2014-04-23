@@ -1923,7 +1923,7 @@ GMaps.fire = function(event_name, object, scope) {
 
 GMaps.geolocate = function(options) {
   var complete_callback = options.always || options.complete;
-
+function onDeviceReady() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
       options.success(position);
@@ -1945,6 +1945,7 @@ GMaps.geolocate = function(options) {
     if (complete_callback) {
       complete_callback();
     }
+  }
   }
 };
 
