@@ -22,9 +22,9 @@
 
     // Cordova is ready
     //
-	var pos;
+	var options = { timeout: 31000, enableHighAccuracy: true, maximumAge: 90000 };
     function onDeviceReady() {
-       pos = navigator.geolocation.getCurrentPosition(onSuccess, onError);
+       pos = navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
     }
 		var lati;
 		var longi;
