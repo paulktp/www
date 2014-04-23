@@ -26,7 +26,7 @@
 			element2.innerHTML = '<p style="text-align:center; margin-top:15%;">Restaurant de Metz<br />Distance : ' + distMe + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
 			element1.style.backgroundColor = "white";
 			element2.style.backgroundColor = "white";
-			}else{ 
+		}else{ 
 			element2.innerHTML = '<p style="text-align:center; margin-top:10%;color:e2b500">Vous êtes plus proche du </p>';
 			element2.innerHTML += '<p style="text-align:center;">Restaurant de Metz<br />Distance : ' + distMe + 'km <br /><br />Cliquer ici pour plus d\'information</p>';				
 			element1.innerHTML = '<p style="text-align:center; margin-top:15%">Restaurant de Thionville<br />Distance : ' + distTh + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
@@ -39,7 +39,7 @@
 			element2.innerHTML = '<p style="text-align:center; margin-top:15%; font-size:2em">Restaurant de Metz<br />Distance : ' + distMe + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
 			element1.style.backgroundColor = "white";
 			element2.style.backgroundColor = "white";
-			}else{ 
+		}else{ 
 			element2.innerHTML = '<p style="text-align:center; margin-top:10%;color:e2b500; font-size:2em">Vous êtes plus proche du </p>';
 			element2.innerHTML += '<p style="text-align:center; font-size:2em">Restaurant de Metz<br />Distance : ' + distMe + 'km <br /><br />Cliquer ici pour plus d\'information</p>';				
 			element1.innerHTML = '<p style="text-align:center; margin-top:15%; font-size:2em">Restaurant de Thionville<br />Distance : ' + distTh + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
@@ -48,13 +48,6 @@
 	
 	}
 }
-	function getLatitude(position){
-		return position.coords.latitude;
-	}
-	
-	function getLongitude(position) {
-		return position.coords.longitude;
-	}
 
     // onError Callback receives a PositionError object
     function onError(error) {
