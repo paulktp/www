@@ -1,6 +1,11 @@
-/**
- * Directions to London
- */
+function init() {	
+	document.addEventListener("deviceready", onDeviceReady, false);
+	}
+
+function onDeviceReady() {
+    navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
+	}
+	
 var map2;
 $(document).ready(function(){
   var map2 = new GMaps({
@@ -9,8 +14,7 @@ $(document).ready(function(){
     lng: 6.176905000000033,
     zoom: 12
   });
-  GMaps.geolocate({
-    success: function(position){
+    function onSuccess(position) {
       map2.setCenter(position.coords.latitude, position.coords.longitude);
 	    map2.addMarker({
 			lat: position.coords.latitude,
@@ -33,8 +37,7 @@ $(document).ready(function(){
     },
     not_supported: function(){
       alert("Your browser does not support geolocation");
-    }
-  });
+    };
     map2.addMarker({
       lat: 49.119327,
       lng: 6.17101,
@@ -43,3 +46,4 @@ $(document).ready(function(){
         content: 'Restaurant kyou sushi de Metz Adresse : 6 Rue du Moyen Pont, 57000 Metz </ br>Téléphone : 03 87 66 83 52 </ br>Horaires : Ouvert 7/7j de 12:00 à 15:00 et de 18:30 à 23:00'}
     });
 });
+}

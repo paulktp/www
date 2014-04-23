@@ -1921,33 +1921,6 @@ GMaps.fire = function(event_name, object, scope) {
   }
 };
 
-GMaps.geolocate = function(options) {
-  var complete_callback = options.always || options.complete;
-
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      options.success(position);
-
-      if (complete_callback) {
-        complete_callback();
-      }
-    }, function(error) {
-      options.error(error);
-
-      if (complete_callback) {
-        complete_callback();
-      }
-    }, options.options);
-  }
-  else {
-    options.not_supported();
-
-    if (complete_callback) {
-      complete_callback();
-    }
-  }
-};
-
 GMaps.geocode = function(options) {
   this.geocoder = new google.maps.Geocoder();
   var callback = options.callback;

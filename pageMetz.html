@@ -7,7 +7,7 @@
 	<script src="phonegap.js"></script>	
 
 </head>
-<body onload="modif()" style="background:url('img/fond2.png') 0 0 no-repeat; background-size: 100% 100%;">
+<body onload="init()" style="background:url('img/fond2.png') 0 0 no-repeat; background-size: 100% 100%;">
 <section class="container">
 	<div class="">
 	<div id="ret" class="ret"></div>
@@ -31,7 +31,13 @@
 <script src="coreM.js"></script>
 <script src="main.js"></script>
 <script>
-    function modif(){
+	function init() {	
+    document.addEventListener("deviceready", onDeviceReady, false);}
+
+    // device APIs are available
+	var options = { timeout: 31000, enableHighAccuracy: true, maximumAge: 90000 };
+    function onDeviceReady() {
+        navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
 	var element1 = document.getElementById('DivIpad');
 	var element2 = document.getElementById('ret');
 	if(device.model.indexOf('iPad') != -1){
