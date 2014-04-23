@@ -1,3 +1,6 @@
+/**
+ * Directions to London
+ */
 var map;
 $(document).ready(function(){
   var map = new GMaps({
