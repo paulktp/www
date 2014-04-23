@@ -6,7 +6,7 @@
 <title style="margin-top:5%">Detail dur le restaurant de Thionville</title>
 	<script src="phonegap.js"></script>	
 </head>
-<body onload="modif()" style="background:url('img/fond2.png') 0 0 no-repeat; background-size: 100% 100%;">
+<body onload="initial()" style="background:url('img/fond2.png') 0 0 no-repeat; background-size: 100% 100%;">
 <section class="container">
 	<div class="">
 		<div id="ret" ></div>
@@ -30,7 +30,6 @@
 <script src="coreTh.js"></script>
 <script src="main.js"></script>	
 <script>
-    function modif(){
 	var element1 = document.getElementById('DivIpad');
 	var element2 = document.getElementById('ret');
 	if(device.model.indexOf('iPad') != -1){
@@ -39,7 +38,7 @@
 	if(device.platform == "iOS"){
 			element2.innerHTML = '<p onClick = "redirectIndex()" style="margin-left:3%; margin-top:5%; color:black; text-decoration: underline;">Retour</p>';
 	}
-}
+
 
 	function redirectIndex() {	
          var ref = window.open('index.html', '_self', 'location=yes');
