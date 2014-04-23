@@ -1,4 +1,47 @@
-var map;
+  document.addEventListener("deviceready", onDeviceReady, false);
+
+    // Cordova is ready
+    //
+	var pos;
+    function onDeviceReady() {
+       pos = navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    }
+		var lati;
+		var longi;
+    function onSuccess(position) {
+        var element = document.getElementById('geolocation');				
+		lati = position.coords.latitude;
+		longi = position.coords.longitude ;
+    }
+
+    // onError Callback receives a PositionError object
+    //
+    function onError(error) {
+        alert('code: '    + error.code    + '\n' +
+                'message: ' + error.message + '\n');
+    }
+	
+	var element1 = document.getElementById('DivIpad');
+	var element2 = document.getElementById('ret');
+	if(device.model.indexOf('iPad') != -1){
+		element1.innerHTML = '<img src="img/picRestMetz.jpg" style="width: 100%; height:38%; position:relative; bottom:0px"/>';
+		}
+	if(device.platform == "iOS"){
+			element2.innerHTML = '<p onClick = "redirectIndex()" style="margin-left:3%; margin-top:5%; color:black; text-decoration: underline;">Retour</p>';
+	}
+
+
+	function redirectIndex() {	
+         var ref = window.open('index.html', '_self', 'location=yes');
+	}
+	function redirectWebSite() {	
+         var ref = window.open('http://www.kyousushi.com', '_system', 'location=yes');
+	}
+	function redirectKyouFB() {	
+         var ref = window.open('https://www.facebook.com/KyouSushi', '_system', 'location=yes');
+	}	
+	
+	var map;
 $(document).ready(function(){
   var map = new GMaps({
     el: '#directions_map',
@@ -8,16 +51,16 @@ $(document).ready(function(){
   });
   GMaps.geolocate({
     success: function(position){
-      map.setCenter(position.coords.latitude, position.coords.longitude);
+      map.setCenter(lati, longi);
 	  	    map.addMarker({
-			lat: position.coords.latitude,
-			lng: position.coords.longitude,
+			lat: lati,
+			lng: longi,
 			title: 'You are here.',
 			infoWindow: {
 			content: 'Vous êtes ici'}
 		});
        map.drawRoute({
-        origin: [position.coords.latitude, position.coords.longitude],
+        origin: [lati, longi],
         destination: [49.119327, 6.17101],
         travelMode: 'driving',
         strokeColor: '#000',
