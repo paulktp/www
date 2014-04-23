@@ -30,6 +30,28 @@
 <script src="coreTh.js"></script>
 <script src="main.js"></script>	
 <script>
+  document.addEventListener("deviceready", onDeviceReady, false);
+
+    // Cordova is ready
+    //
+    function onDeviceReady() {
+        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    }
+	
+	    //
+    function onSuccess(position) {
+        var element = document.getElementById('geolocation');
+        element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
+                            'Longitude: '          + position.coords.longitude             + '<br />';
+    }
+
+    // onError Callback receives a PositionError object
+    //
+    function onError(error) {
+        alert('code: '    + error.code    + '\n' +
+                'message: ' + error.message + '\n');
+    }
+	
 	var element1 = document.getElementById('DivIpad');
 	var element2 = document.getElementById('ret');
 	if(device.model.indexOf('iPad') != -1){
