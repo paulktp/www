@@ -8,7 +8,8 @@
             <h1 style="text-align:center;"><img src="logo.png" /></h1>
             <div id="deviceready" class="blink" style="position:relative">
 				<p class="event received">
-		<div id="page" style="margin-left:15%">			
+		<div id="page" style="margin-left:15%">	
+			<div id="wait">En attente de géolocalisation ...</div>
 			<div id="myDiv1" onClick = "redirectKyouThionville()" style=" border: solid 1px #996600; border-radius: 0.5em; height:28%; width:75%; margin-top:15%"></div>
 		</div>
 		<div id="page" style="margin-left:15%">
@@ -50,9 +51,11 @@
     function onSuccess(position) {
         var element1 = document.getElementById('myDiv1');
 		var element2 = document.getElementById('myDiv2');
+		var element3 = document.getElementById('wait');
 		
 		var distTh = Distance(position.coords.latitude , position.coords.longitude, 49.3667, 6.1667);
 		var distMe = Distance(position.coords.latitude , position.coords.longitude, 49.119327,  6.17101);
+		element3.innerHTML = '<p></p>
 	if(device.model.indexOf('iPad') == -1){
 		if(parseFloat(distMe) > parseFloat(distTh)){
 			element1.innerHTML = '<p style="text-align:center; margin-top:10%;color:e2b500">Vous êtes plus proche du </p>';
