@@ -1,23 +1,26 @@
-var map;
+/**
+ * Directions to London
+ */
+var map2;
 $(document).ready(function(){
-  var map = new GMaps({
+  var map2 = new GMaps({
     el: '#directions_map',
     lat: 49.119666,
     lng: 6.176905000000033,
     zoom: 12
   });
-
+  GMaps.geolocate({
     success: function(position){
-      map.setCenter(getLatitude(position), getLongitude(position));
-	    map.addMarker({
-			lat: getLatitude(position),
-			lng: getLongitude(position),
+      map2.setCenter(position.coords.latitude, position.coords.longitude);
+	    map2.addMarker({
+			lat: position.coords.latitude,
+			lng: position.coords.longitude,
 			title: 'You are here.',
 			infoWindow: {
 			content: 'Vous êtes ici'}
 		});
        map.drawRoute({
-        origin: [getLatitude(position), getLongitude(position)],
+        origin: [position.coords.latitude, position.coords.longitude],
         destination: [49.119327, 6.17101],
         travelMode: 'driving',
         strokeColor: '#000',
@@ -25,8 +28,14 @@ $(document).ready(function(){
         strokeWeight: 6
       });
     },
- 
-    map.addMarker({
+    error: function(error){
+      alert('Geolocation failed: '+error.message);
+    },
+    not_supported: function(){
+      alert("Your browser does not support geolocation");
+    }
+  });
+    map2.addMarker({
       lat: 49.119327,
       lng: 6.17101,
       title: 'Kyou sushi Metz',
