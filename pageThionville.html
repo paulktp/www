@@ -32,16 +32,15 @@
   document.addEventListener("deviceready", onDeviceReady, false);
 
     // Cordova is ready
-    //
+	var pos;
     function onDeviceReady() {
-        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+       pos = navigator.geolocation.getCurrentPosition(onSuccess, onError);
     }
-	
-	    //
+		var lati;
+		var longi;
     function onSuccess(position) {
-        var element = document.getElementById('geolocation');
-        element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
-                            'Longitude: '          + position.coords.longitude             + '<br />';
+		lati = position.coords.latitude;
+		longi = position.coords.longitude ;
     }
 
     // onError Callback receives a PositionError object
@@ -81,16 +80,16 @@ $(document).ready(function(){
   });
   GMaps.geolocate({
     success: function(position){
-      map.setCenter(position.coords.latitude, position.coords.longitude);
+      map.setCenter(lati, longi);
 	  	    map.addMarker({
-			lat: position.coords.latitude,
-			lng: position.coords.longitude,
+			lat: lati,
+			lng: longi,
 			title: 'You are here.',
 			infoWindow: {
 			content: 'Vous êtes ici'}
 		});
        map.drawRoute({
-        origin: [position.coords.latitude, position.coords.longitude],
+        origin: [lati, longi],
         destination: [49.119327, 6.17101],
         travelMode: 'driving',
         strokeColor: '#000',
