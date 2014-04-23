@@ -7,7 +7,7 @@ $(document).ready(function(){
     zoom:12
   });
 
-    success: function(position){
+    function(position){
       map.setCenter(getLatitude(position), getLongitude(position));
 	  	    map.addMarker({
 			lat: getLatitude(position),

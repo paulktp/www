@@ -48,11 +48,11 @@
 	
 	}
 }
-	function getLatitude(position) {
+	function getLatitude(position){
 		return position.coords.latitude;
 	}
 	
-		function getLongitude(position) {
+	function getLongitude(position) {
 		return position.coords.longitude;
 	}
 
