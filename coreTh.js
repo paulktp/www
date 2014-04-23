@@ -7,7 +7,6 @@ $(document).ready(function(){
     zoom:12
   });
 
-    function(position){
       map.setCenter(getLatitude(position), getLongitude(position));
 	  	    map.addMarker({
 			lat: getLatitude(position),
@@ -24,7 +23,6 @@ $(document).ready(function(){
         strokeOpacity: 0.6,
         strokeWeight: 6
       });
-    },
 	
     map.addMarker({
       lat: 49.119327,
