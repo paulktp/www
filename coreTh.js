@@ -68,12 +68,6 @@ $(document).ready(function(){
         strokeWeight: 6
       });
     },
-    error: function(error){
-      alert('Geolocation failed: '+error.message);
-    },
-    not_supported: function(){
-      alert("Your browser does not support geolocation");
-    }
   });
     map.addMarker({
       lat: 49.119327,
