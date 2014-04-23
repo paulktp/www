@@ -1,3 +1,6 @@
+function initial() {	
+    document.addEventListener("deviceready", onDeviceReady, false);}
+
 (function(root, factory) {
   if(typeof exports === 'object') {
     module.exports = factory();
@@ -1924,7 +1927,7 @@ GMaps.fire = function(event_name, object, scope) {
 GMaps.geolocate = function(options) {
   var complete_callback = options.always || options.complete;
 
-  if (navigator.geolocation) {
+function onDeviceReady() {
     navigator.geolocation.getCurrentPosition(function(position) {
       options.success(position);
 
