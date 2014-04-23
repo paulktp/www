@@ -32,6 +32,8 @@
 	if(device.platform == 'iOS'){
 			element2.innerHTML = '<p onClick = "redirectIndex()" style="margin-left:3%; margin-top:5%; color:black; text-decoration: underline;">Retour</p>';
 	}
+
+
 	function redirectIndex() {	
          var ref = window.open('index.html', '_self', 'location=yes');
 	}
@@ -69,6 +71,12 @@ $(document).ready(function(){
         strokeWeight: 6
       });
     },
+    error: function(error){
+      alert('Geolocation failed: '+error.message);
+    },
+    not_supported: function(){
+      alert("Your browser does not support geolocation");
+    }
   });
     map.addMarker({
       lat: 49.119327,
