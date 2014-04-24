@@ -9,41 +9,46 @@
 <title style="margin-top:5%; font-size:3em">Detail dur le restaurant de Thionville</title>
 	<script src="phonegap.js"></script>	
 	<style>
-#ret {
-	width:auto; 
-	padding:8px 0; 
-	text-align:center; 
-	display: inline-block; 
-	float:left; 
-	margin:0 15px 15px 0; 
-	font-size: 1.6em; 
-	border-radius:7px; 
-	box-shadow: 0 0 1px rgba( 0, 0, 0, 0.2), 0 -1px 0 rgba( 255, 255, 255, 0.1); 
-	font-size: 0.85em; 
-	width:120px; 
-	color:#333; 
-	text-shadow: 0px 1px 0px rgba( 255, 255, 255, 0.3);
-	}	
-	#ret:active {
-	background: #F8F8F8;
-	background: -webkit-linear-gradient( #F8F8F8, #D7D7D7); 
-	background: -moz-linear-gradient( #F8F8F8, #D7D7D7); 
-	background: -ms-linear-gradient( #F8F8F8, #D7D7D7); 
-	background: -o-linear-gradient( #F8F8F8, #D7D7D7); 
-	background: linear-gradient( #F8F8F8, #D7D7D7);
-	text-shadow: 0px 2px 0px rgba( 255, 255, 255, 0.8);
-	}
-#ret:hover{ 
-	background: #F5F5F5;
-	background: -webkit-linear-gradient( #FFF, #CCC);
-	background: -moz-linear-gradient( #FFF, #CCC);
-	background: -ms-linear-gradient( #FFF, #CCC);
-	background: -o-linear-gradient( #FFF, #CCC);
-	background: linear-gradient( #FFF, #CCC);
-	}
-#ret:active {box-shadow: 1px 1px 10px #CCC inset, 0 1px 0 rgba( 255, 255, 255, 0.4);}
-#ret {color:#BBB; text-shadow: 0px 1px 0px rgba( 255, 255, 255, 1);}
-#ret:hover,  #ret:active {color:#AAA;}
+#ret{
+background: #bfbfbf;
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#e5e5e5), to(#bbb));
+background: -moz-linear-gradient(0% 100% 90deg,#bbb, #e5e5e5);
+border: 1px solid #ccc;
+border-radius: 3px;
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+-moz-box-shadow: inset 0px 1px 3px #f5f5f5;
+-webkit-box-shadow: inset 0px 1px 3px #f5f5f5;
+color: #333;
+font-family: "lucida grande", sans-serif;
+font-size: 12px;
+font-weight: bold;
+line-height: 1;
+padding: 8px 0;
+text-align: center;
+text-shadow: 0 1px 0px #eee;
+width: 150px;
+}
+
+#web{
+color:#606363;
+-moz-box-shadow: 0px 0px 10px #9b9b9b;
+-webkit-box-shadow: 0px 0px 10px #9b9b9b;
+-o-box-shadow: 0px 0px 10px #9b9b9b;
+box-shadow: 0px 0px 10px #9b9b9b;
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+border-radius: 10px;
+border: 1px solid #c0c0c0;
+background:#BAD6D6;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#BAD6D6", endColorstr="#B5BDBD"); /* Pour IE seulement et mode gradient à linear */
+background: -webkit-gradient(linear, left top, left bottom, from(#BAD6D6), to(#B5BDBD));
+background: -webkit-linear-gradient(#BAD6D6, #B5BDBD);
+background: -moz-linear-gradient(#BAD6D6, #B5BDBD);
+background: -o-linear-gradient(#BAD6D6, #B5BDBD); 
+background: -ms-linear-gradient(#BAD6D6, #B5BDBD); 
+background: linear-gradient(#BAD6D6, #B5BDBD);
+} 
 
 	</style>
 </head>
@@ -52,7 +57,7 @@
 		<div id="ret"></div>
 		<div id="img"></div>
 		<h2 style="text-align:center; margin-bottom:10%; font-size:40px">Restaurant de Thionville</h2>
-		<p style = "text-align:center; font-size:1em">Accès au site internet<a onClick = "redirectWebSite()" style="color:#e2b500"><br>cliquez ici</a></p>
+		<p id="web" onClick = "redirectWebSite()" style = "text-align:center; font-size:1em">Accès au site internet</p>
 		<div id="directions_map" class="map" style="margin-top:7%"></div><hr />
 		<div style= "text-align:center; font-size:1em; margin-bottom:5%" class="souscontainer"><p>Adresse : 6 Rue du Moyen Pont, 57000 Metz</p><p>Téléphone : 03 87 66 83 52</p><p>Horaires :  Ouvert 7/7j de 12:00 à 15:00 et de 18:30 à 23:00</p></div>
 		<div style="heigth:35px"></div>
