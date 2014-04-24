@@ -1,3 +1,11 @@
+var element1 = document.getElementById('carte');
+
+if(device.platform == 'iOS'){
+  element1.innerHTML = '<div id="directions_map" class="map" style="height:35%"></div><hr />';
+}else{
+  element1.innerHTML = '<div id="directions_map" class="map"></div><hr />';
+}
+  
   document.addEventListener("deviceready", onDeviceReady, false);
 
     // Cordova is ready
@@ -10,7 +18,6 @@
 		var longi;
     function onSuccess(position) {
 	 
-	var element1 = document.getElementById('DivIpad');
 	var element2 = document.getElementById('ret');
 	/*if(device.model.indexOf('iPad') != -1){
 		element1.innerHTML = '<img src="img/picRestMetz.jpg" style="width: 100%; height:38%; position:relative; bottom:0px"/>';
