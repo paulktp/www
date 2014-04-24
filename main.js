@@ -1,3 +1,10 @@
+var element4 = document.getElementById('myDiv1');
+if(device.model.indexOf('iPad') >= 0){
+	element4.innerHTML = '<p style="font-syze:2em">Recherche de géolocalisation en cours ...</p>'
+}esle{
+	element4.innerHTML = '<p>Recherche de géolocalisation en cours ...</p>'
+}
+
 // Wait for device API libraries to load
 	function init() {	
     document.addEventListener("deviceready", onDeviceReady, false);}
@@ -54,12 +61,7 @@
     // onError Callback receives a PositionError object
     function onError(error) {
         alert('message: Les données du GPS doivent être accessibles pour que l\' application fonctionne correctement. Veuillez activer le GPS.\n');
-		if (navigator.app) {
-            navigator.app.exitApp();
-        }
-        else if (navigator.device) {
-            navigator.device.exitApp();
-        }}
+            navigator.app.exitApp();}
 	
 		var LatA = 41.3879169;
 		var LngB = 2.1699187;
