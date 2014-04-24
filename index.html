@@ -3,14 +3,26 @@
     <title>Kyousushi</title>	
 	<script src="phonegap.js"></script>	
 	<script src="main.js"></script>	
+	<style>
+@-webkit-keyframes blinker {  
+  from { opacity: 1.0; }
+  to { opacity: 0.0; }
+}
+	#recherche {
+  -webkit-animation-name: blinker;  
+  -webkit-animation-iteration-count: infinite;  
+  -webkit-animation-timing-function: cubic-bezier(1.0,0,0,1.0);
+  -webkit-animation-duration: 1s; 
+}	
+	</style>
   </head>
   <body onload="init();" style="background:url('img/fond2.png') 0 0 no-repeat; background-size: 100% 100%;">
         <div class="app">
             <h1 style="text-align:center;"><img src="logo.png" /></h1>
             <div id="deviceready" class="blink" style="position:relative">
 				<p class="event received">
+				<div id="recherche" style="text-align:center; text-decoration:blink;">Recherche de géolocalisation en cours ...</div>
 		<div id="page" style="margin-left:15%">
-			<div id="recherche" style="text-align:center; text-decoration:blink;">Recherche de géolocalisation en cours ...</div>
 			<div id="myDiv1" onClick = "redirectKyouThionville()" style=" border: solid 1px #996600; border-radius: 0.5em; height:28%; width:75%; margin-top:15%;"></div>
 		</div>
 		<div id="page" style="margin-left:15%">
