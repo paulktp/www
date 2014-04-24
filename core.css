@@ -1,20 +1,12 @@
 body{
 	font-family: 'Droid Sans', serif;
-	background:url('img/fond2.png') 0 0 no-repeat;
-	background-size: 100% 100%;
 }
-.ad_container{
-	margin-bottom:20px;
-	height:100px;
-	float:right;
-}
+
 .container{
 	width:90%;
 	margin:30px auto;
 	margin-top:5%;
-	padding:25px;
-	min-height:200px;
-	height:auto;	
+	padding:25px;	
 }
 
 .souscontainer{
@@ -24,6 +16,7 @@ body{
 	width:75%;
 	border-radius:0.3em;
 	background-color:white;
+	font-size:40px;
 }
 
 .map {
