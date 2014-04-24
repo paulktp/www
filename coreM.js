@@ -1,11 +1,3 @@
-var element1 = document.getElementById('carte');
-
-if(device.platform == 'iOS'){
-  element1.innerHTML = '<div id="directions_map" class="map" style="height:35%"></div><hr />';
-}else{
-  element1.innerHTML = '<div id="directions_map" class="map"></div><hr />';
-}
-  
   document.addEventListener("deviceready", onDeviceReady, false);
 
     // Cordova is ready
@@ -17,7 +9,7 @@ if(device.platform == 'iOS'){
 		var lati;
 		var longi;
     function onSuccess(position) {
-	 
+	 var element1 = document.getElementById('carte');
 	var element2 = document.getElementById('ret');
 	/*if(device.model.indexOf('iPad') != -1){
 		element1.innerHTML = '<img src="img/picRestMetz.jpg" style="width: 100%; height:38%; position:relative; bottom:0px"/>';
@@ -25,7 +17,11 @@ if(device.platform == 'iOS'){
 	if(device.platform == 'iOS'){
 			element2.innerHTML = '<p onClick = "redirectIndex()" style="margin-left:3%; margin-top:5%; color:black; text-decoration: underline; font-size:2.5em">Retour</p>';
 	}
-        var element = document.getElementById('geolocation');				
+	if(device.platform == 'iOS'){
+		element1.innerHTML = '<div id="directions_map" class="map" style="height:35%"></div><hr />';
+	}else{
+		element1.innerHTML = '<div id="directions_map" class="map"></div><hr />';
+	}	
 		lati = position.coords.latitude;
 		longi = position.coords.longitude ;
 			var map;

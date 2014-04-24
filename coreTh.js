@@ -18,7 +18,11 @@
 	if(device.platform == "iOS"){
 			element2.innerHTML = '<p onClick = "redirectIndex()" style="margin-left:3%; margin-top:5%; color:black; text-decoration: underline; font-size:2.5em">Retour</p>';
 	}	
-        var element = document.getElementById('geolocation');				
+    if(device.platform == 'iOS'){
+		element1.innerHTML = '<div id="directions_map" class="map" style="height:35%"></div><hr />';
+	}else{
+		element1.innerHTML = '<div id="directions_map" class="map"></div><hr />';
+	}			
 		lati = position.coords.latitude;
 		longi = position.coords.longitude ;
 			var map;
