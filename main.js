@@ -1,10 +1,3 @@
-var element4 = document.getElementById('myDiv1');
-if(device.model.indexOf('iPad') >= 0){
-	element4.innerHTML = '<p style="font-syze:2em">Recherche de géolocalisation en cours ...</p>'
-}esle{
-	element4.innerHTML = '<p>Recherche de géolocalisation en cours ...</p>'
-}
-
 // Wait for device API libraries to load
 	function init() {	
     document.addEventListener("deviceready", onDeviceReady, false);}
