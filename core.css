@@ -2,14 +2,21 @@ body{
 	font-family: 'Droid Sans', serif;
 	color:#444;
 	font-size:1.2em;
-	background-image:url('img/fond.png');
+	background:url('img/fond2.png') 0 0 no-repeat;
 }
 .ad_container{
 	margin-bottom:20px;
 	height:100px;
 	float:right;
 }
-
+.container{
+	width:90%;
+	margin:30px auto;
+	margin-top:5%;
+	padding:25px;
+	min-height:200px;
+	height:auto;	
+}
 
 .souscontainer{
 	margin-left:12.5%;
