@@ -9,20 +9,10 @@
 		var lati;
 		var longi;
     function onSuccess(position) {
-	  
-	var element1 = document.getElementById('coord');
 	var element2 = document.getElementById('ret');
-	var element3 = document.getElementById('site');
-	var element4 = document.getElementById('img');
 
 	if(device.platform == 'iOS'){
-		element1.innerHTML = '<div style= "text-align:center; font-size:1.8em; margin-bottom:5%" class="souscontainer"><p>Adresse : 6 Rue du Moyen Pont, 57000 Metz</p><p>Téléphone : 03 87 66 83 52</p><p>Horaires :  Ouvert 7/7j de 12:00 à 15:00 et de 18:30 à 23:00</p></div>';
 		element2.innerHTML = '<p onClick = "redirectIndex()" style="margin-left:3%; margin-top:5%; color:black; text-decoration: underline; font-size:2.5em">Retour</p>';
-		element3.innerHTML = '<p style = "text-align:center; font-size:2em">Accès au site internet<a onClick = "redirectWebSite()" style="color:#e2b500"><br>cliquez ici</a></p>';
-		element4.innerHTML = '<h1 style="text-align:center;margin-top:8%"><img src="logo.png" /></h1>';
-	}else{
-		element1.innerHTML = '<div style= "text-align:center; font-size:0.8em; margin-bottom:5%" class="souscontainer"><p>Adresse : 6 Rue du Moyen Pont, 57000 Metz</p><p>Téléphone : 03 87 66 83 52</p><p>Horaires :  Ouvert 7/7j de 12:00 à 15:00 et de 18:30 à 23:00</p></div>';
-		element3.innerHTML =  '<p style = "text-align:center;">Accès au site internet<a onClick = "redirectWebSite()" style="color:#e2b500"><br>cliquez ici</a></p>';
 	}			
 		lati = position.coords.latitude;
 		longi = position.coords.longitude ;
