@@ -16,7 +16,7 @@
 		element1.innerHTML = '<img src="img/picRestMetz.jpg" style="width: 100%; height:38%; position:relative; bottom:0px"/>';
 		}*/
 	if(device.platform == "iOS"){
-			element2.innerHTML = '<p onClick = "redirectIndex()" style="margin-left:3%; margin-top:5%; color:black; text-decoration: underline; font-size:3em">Retour</p>';
+			element2.innerHTML = '<p onClick = "redirectIndex()" style="margin-left:3%; margin-top:5%; color:black; text-decoration: underline; font-size:2.5em">Retour</p>';
 	}	
         var element = document.getElementById('geolocation');				
 		lati = position.coords.latitude;
