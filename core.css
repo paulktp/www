@@ -1,6 +1,7 @@
 body{
 	font-family: 'Droid Sans', serif;
 	background:url('img/fond2.png') 0 0 no-repeat;
+	background-size: 100% 100%;
 }
 .ad_container{
 	margin-bottom:20px;
