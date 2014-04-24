@@ -24,9 +24,9 @@
 		var distMe = Distance(position.coords.latitude , position.coords.longitude, 49.119327,  6.17101);
 	if(device.model.indexOf('iPad') >= 0 || device.model.indexOf('iPod') >= 0){
 			if(parseFloat(distMe) > parseFloat(distTh)){
-			element1.innerHTML = '<p style="text-align:center; margin-top:10%;color:e2b500; font-size:4em">Vous êtes plus proche du </p>';
-			element1.innerHTML += '<p style="text-align:center; font-size:4em">Restaurant de Thionville<br />Distance : ' + distTh + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
-			element2.innerHTML = '<p style="text-align:center; margin-top:15%; font-size:4em">Restaurant de Metz<br />Distance : ' + distMe + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
+			element1.innerHTML = '<p style="text-align:center; margin-top:10%;color:e2b500; font-size:5em">Vous êtes plus proche du </p>';
+			element1.innerHTML += '<p style="text-align:center; font-size:5em">Restaurant de Thionville<br />Distance : ' + distTh + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
+			element2.innerHTML = '<p style="text-align:center; margin-top:15%; font-size:5em">Restaurant de Metz<br />Distance : ' + distMe + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
 			element1.style.backgroundColor = "white";
 			element2.style.backgroundColor = "white";
 		}else{ 
