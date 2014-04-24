@@ -9,14 +9,7 @@ body{
 	height:100px;
 	float:right;
 }
-.container{
-	width:90%;
-	margin:30px auto;
-	margin-top:5%;
-	padding:25px;
-	min-height:200px;
-	height:auto;	
-}
+
 
 .souscontainer{
 	margin-left:12.5%;
