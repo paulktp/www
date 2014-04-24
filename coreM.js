@@ -9,10 +9,14 @@
 		var lati;
 		var longi;
     function onSuccess(position) {
+	var element1 = document.getElementById('img');
 	var element2 = document.getElementById('ret');
 
 	if(device.platform == 'iOS'){
 		element2.innerHTML = '<p onClick = "redirectIndex()" style="margin-left:3%; margin-top:5%; color:black; text-decoration: underline; font-size:1em">Retour</p>';
+	}			
+	if(device.model.indexOf('iPad') >= 0) {
+	element1.innerHTML = '<h1 style="text-align:center;"><img src="logo.png" /></h1>';
 	}
 		lati = position.coords.latitude;
 		longi = position.coords.longitude ;
