@@ -16,6 +16,9 @@
     function onSuccess(position) {
         var element1 = document.getElementById('myDiv1');
 		var element2 = document.getElementById('myDiv2');
+		var element3 = document.getElementById('recherche');
+		
+		element3.innerHTML = '<p> </p>'
 		
 		var distTh = Distance(position.coords.latitude , position.coords.longitude, 49.3667, 6.1667);
 		var distMe = Distance(position.coords.latitude , position.coords.longitude, 49.119327,  6.17101);
@@ -51,7 +54,8 @@
     // onError Callback receives a PositionError object
     function onError(error) {
         alert('message: Les données du GPS doivent être accessibles pour que l\' application fonctionne correctement. Veuillez activer le GPS.\n');
-		navigator.addEventListener('exit', app.iabClose);}
+		event.preventDefault();
+		event.stopPropagation();}
 	
 		var LatA = 41.3879169;
 		var LngB = 2.1699187;
