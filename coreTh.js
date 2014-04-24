@@ -12,7 +12,7 @@
 	var element2 = document.getElementById('ret');
 
 	if(device.platform == 'iOS'){
-		element2.innerHTML = '<p onClick = "redirectIndex()" style="margin-left:3%; margin-top:5%; color:black; text-decoration: underline; font-size:2.5em">Retour</p>';
+		element2.innerHTML = '<p onClick = "redirectIndex()" style="margin-left:3%; margin-top:5%; color:black; text-decoration: underline; font-size:1em">Retour</p>';
 	}			
 		lati = position.coords.latitude;
 		longi = position.coords.longitude ;

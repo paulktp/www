@@ -9,16 +9,10 @@
 		var lati;
 		var longi;
     function onSuccess(position) {
-	 
-	var element1 = document.getElementById('coord');
 	var element2 = document.getElementById('ret');
 
 	if(device.platform == 'iOS'){
-		element1.innerHTML = '<div style= "text-align:center; font-size:1.8em; margin-bottom:5%" class="souscontainer"><p>Adresse : 6 Rue du Moyen Pont, 57000 Metz</p><p>Téléphone : 03 87 66 83 52</p><p>Horaires :  Ouvert 7/7j de 12:00 à 15:00 et de 18:30 à 23:00</p></div>';
 		element2.innerHTML = '<p onClick = "redirectIndex()" style="margin-left:3%; margin-top:5%; color:black; text-decoration: underline; font-size:1em">Retour</p>';
-		
-	}else{
-		element1.innerHTML = '<div style= "text-align:center; font-size:0.8em; margin-bottom:5%" class="souscontainer"><p>Adresse : 6 Rue du Moyen Pont, 57000 Metz</p><p>Téléphone : 03 87 66 83 52</p><p>Horaires :  Ouvert 7/7j de 12:00 à 15:00 et de 18:30 à 23:00</p></div>';
 	}
 		lati = position.coords.latitude;
 		longi = position.coords.longitude ;
