@@ -2,7 +2,6 @@ body{
 	background:url('img/fond2.png') 0 0 no-repeat;
 	background-size: 100% 100%;
 	font-family: 'Droid Sans', serif;
-	font-size:1.5em;
 }
 
 .container{
@@ -22,6 +21,7 @@ body{
 }
 
 .map {
+	font-size:1.2em;
 	display: block;
 	width: 95%;
 	height: 10em;
