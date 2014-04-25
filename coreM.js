@@ -79,7 +79,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
          var ref = window.open('index.html', '_self', 'location=yes');
 	}
 	function redirectWebSite() {	
-         var ref = window.open('http://www.kyousushi.com', '_system', 'location=yes');
+         var ref = window.open('http://www.kyousushi.com/la-carte/menus/', '_system', 'location=yes');
 	}
 	function redirectKyouFB() {	
          var ref = window.open('https://www.facebook.com/KyouSushi', '_system', 'location=yes');
