@@ -1,3 +1,9 @@
+var viewPortTag=document.createElement('meta');
+viewPortTag.id="viewport";
+viewPortTag.name = "viewport";
+viewPortTag.content = "width=320; content=user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, target-densitydpi=device-dpi;";
+document.getElementsByTagName('head')[0].appendChild(viewPortTag);
+
 // Wait for device API libraries to load
 	function init() {	
     document.addEventListener("deviceready", onDeviceReady, false);}
