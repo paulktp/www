@@ -19,7 +19,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 	var element2 = document.getElementById('ret');
 
 	if(device.platform == 'iOS'){
-		element2.innerHTML = '<p onClick = "redirectIndex()" style="margin-left:3%; margin-top:5%; color:black; font-size:1em;background: #bfbfbf;background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#e5e5e5), to(#bbb));background: -moz-linear-gradient(0% 100% 90deg,#bbb, #e5e5e5);border: 1px solid #ccc;border-radius: 3px;color: #333;font-weight: bold;padding: 8px 0;text-align: center;text-shadow: 0 1px 0px #eee;width: 17%;">Retour</p>';
+		element2.innerHTML = '<p onClick = "redirectIndex()" style="margin-left:3%; margin-top:5%; color:black; font-size:1em;background: #bfbfbf;background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#e5e5e5), to(#bbb));background: -moz-linear-gradient(0% 100% 90deg,#bbb, #e5e5e5);border: 1px solid #ccc;border-radius: 3px;color: #333;font-weight: bold;padding: 8px 0;text-align: center;text-shadow: 0 1px 0px #eee;width: 18%;">Retour</p>';
 	}			
 	if(device.model.indexOf('iPad') >= 0) {
 	element1.innerHTML = '<h1 style="text-align:center;margin-top:9%"><img src="logo.png" /></h1>';
