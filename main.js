@@ -55,7 +55,7 @@ document.getElementsByTagName('head')[0].appendChild(viewPortTag);
 				element2.style.backgroundColor = "white";
 				element1.style.backgroundColor = "white";}
 		}
-
+}
 
     // onError Callback receives a PositionError object
     function onError(error) {
