@@ -1,10 +1,10 @@
-  var viewPortTag=document.createElement('meta');
+var viewPortTag=document.createElement('meta');
 viewPortTag.id="viewport";
 viewPortTag.name = "viewport";
 viewPortTag.content = "width=320; content=user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, target-densitydpi=device-dpi;";
 document.getElementsByTagName('head')[0].appendChild(viewPortTag);
   
-  document.addEventListener("deviceready", onDeviceReady, false);
+document.addEventListener("deviceready", onDeviceReady, false);
 
     // Cordova is ready
     //
@@ -19,14 +19,13 @@ document.getElementsByTagName('head')[0].appendChild(viewPortTag);
 	var element2 = document.getElementById('ret');
 
 	if(device.platform == 'iOS'){
-		element2.innerHTML = '<p onClick = "redirectIndex()" style="margin-left:3%; margin-top:5%; color:black; font-size:1em">Retour</p>';
+		element2.innerHTML = '<p onClick = "redirectIndex()" style="margin-left:3%; margin-top:5%; color:black; font-size:1em;background: #bfbfbf;background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#e5e5e5), to(#bbb));background: -moz-linear-gradient(0% 100% 90deg,#bbb, #e5e5e5);border: 1px solid #ccc;border-radius: 3px;color: #333;font-weight: bold;padding: 8px 0;text-align: center;text-shadow: 0 1px 0px #eee;width: 8%;">Retour</p>';
 	}			
 	if(device.model.indexOf('iPad') >= 0) {
 	element1.innerHTML = '<h1 style="text-align:center;"><img src="logo.png" /></h1>';
 	}
 		lati = position.coords.latitude;
 		longi = position.coords.longitude ;
-		
 			var map;
   var map = new GMaps({
     el: '#directions_map',
