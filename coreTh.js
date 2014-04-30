@@ -29,8 +29,8 @@ document.addEventListener("deviceready", onDeviceReady, false);
 			var map;
   var map = new GMaps({
     el: '#directions_map',
-    lat: 49.357571,
-    lng: 6.168425999999954,
+    lat: 49.3580638,
+    lng: 6.1691812000000255,
     zoom:12
   });
   GMaps.geolocate({
