@@ -45,7 +45,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 		});
        map.drawRoute({
         origin: [lati, longi],
-        destination: [49.119327, 6.17101],
+        destination: [49.3580638, 6.1691812000000255],
         travelMode: 'driving',
         strokeColor: '#000',
         strokeOpacity: 0.6,
@@ -60,8 +60,8 @@ document.addEventListener("deviceready", onDeviceReady, false);
     }
   });
     map.addMarker({
-      lat: 49.119327,
-      lng: 6.17101,
+      lat: 49.3580638,
+      lng: 6.1691812000000255,
       title: 'Kyou sushi Thionville',
       infoWindow: {
         content: 'Restaurant kyou sushi de Metz Adresse : 6 Rue du Moyen Pont, 57000 Metz </ br>Téléphone : 03 87 66 83 52 </ br>Horaires : Ouvert 7/7j de 12:00 à 15:00 et de 18:30 à 23:00'}
