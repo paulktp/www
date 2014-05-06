@@ -99,10 +99,15 @@
      
     document.addEventListener('push-notification', function(event) {
         var notification = event.notification;
-        navigator.notification.alert(notification.aps.alert);
+        //navigator.notification.alert(notification.aps.alert);
+		navigator.notification.alert(notification.aps.alert, alertCallback, "Notification", "OK") ;
         pushNotification.setApplicationIconBadgeNumber(0);
     });
 }
+	}
+	
+	function alertCallback(){
+	
 	}
 
 
