@@ -1,115 +1,81 @@
-	function redirectKyouMetz() {	
-         var ref = window.open('pageMetz.html', '_self', 'location=yes');
-	}
-	function redirectKyouThionville() {	
-         var ref = window.open('pageThionville.html', '_self', 'location=yes');
-	}
-	function redirectKyouFB() {	
-         var ref = window.open('https://www.facebook.com/KyouSushi', '_system', 'location=yes');
-	}
-	function refreshPage() {		
-         document.location = "index.html";
-	}
-	
-	// pushwoosh
-	function initPushwooshAndroid(){
-    var pushNotification = window.plugins.pushNotification;
-    pushNotification.onDeviceReady();
- 
-    pushNotification.registerDevice({ projectid: "222157888865", appid : "C125D-81938" },
-        function(status) {
-            var pushToken = status;
-            console.warn('push token: ' + pushToken);
-        },
-        function(status) {
-            console.warn(JSON.stringify(['failed to register 1', status]));
-        }
-    );
- 
-    document.addEventListener('push-notification', function(event) {
-        var title = event.notification.title;
-            var userData = event.notification.userdata;
-                                 
-            if(typeof(userData) != "undefined") {
-            console.warn('user data: ' + JSON.stringify(userData));
-        }
-                                     
-        navigator.notification.alert(title);
-    });
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+var iabRef = null;
+
+var app = {
+    // Application Constructor
+    initialize: function() {
+        this.bindEvents();
+    },
+    // Bind Event Listeners
+    //
+    // Bind any events that are required on startup. Common events are:
+    // 'load', 'deviceready', 'offline', and 'online'.
+    bindEvents: function() {
+        document.addEventListener('deviceready', this.onDeviceReady, false);
+    },
+    // deviceready Event Handler
+    //
+    // The scope of 'this' is the event. In order to call the 'receivedEvent'
+    // function, we must explicity call 'app.receivedEvent(...);'
+    onDeviceReady: function() {
+        app.receivedEvent('deviceready');
+		
+    },
+    // Update DOM on a Received Event
+    receivedEvent: function(id) {
+		
+        var parentElement = document.getElementById(id);
+        var listeningElement = parentElement.querySelector('.listening');
+        var receivedElement = parentElement.querySelector('.received');
+
+        listeningElement.setAttribute('style', 'display:none;');
+        receivedElement.setAttribute('style', 'display:block;');
+		
+		/*navigator.notification.alert(
+            'Device is ready...',  // message
+            app.alertDismissed,         // callback
+            'Notification',            // title
+            'OK'                  // buttonName
+        );*/
+		
+		var iabRef = window.open('http://www.ktp.net/', '_blank', 'location=no,toolbar=no');
+		iabRef.addEventListener('loadstart', app.iabLoadStart);
+		iabRef.addEventListener('loadstop', app.iabLoadStop);
+		iabRef.removeEventListener('loaderror', app.iabLoadError);
+		iabRef.addEventListener('exit', app.iabClose);
+
+    },alertDismissed:function(){
+		
+	},iabLoadStart: function(){
+		if(device.platform =="Android"){
+			navigator.notification.activityStart("Chargement", "patientez..."); 
 		}
-	function initPushwooshiOS(){
-	function initPushwoosh() {
-    var pushNotification = window.plugins.pushNotification;
-    pushNotification.onDeviceReady();
-     
-    pushNotification.registerDevice({alert:true, badge:true, sound:true, pw_appid:"C125D-81938", appname:"Kyou"},
-        function(status) {
-            var deviceToken = status['deviceToken'];
-            console.warn('registerDevice: ' + deviceToken);
-        },
-        function(status) {
-            console.warn('failed to register : ' + JSON.stringify(status));
-            navigator.notification.alert(JSON.stringify(['failed to register ', status]));
-        }
-    );
-     
-    pushNotification.setApplicationIconBadgeNumber(0);
-     
-    document.addEventListener('push-notification', function(event) {
-        var notification = event.notification;
-        //navigator.notification.alert(notification.aps.alert);
-		navigator.notification.alert(notification.aps.alert, alertCallback, "Notification", "OK") ;
-        pushNotification.setApplicationIconBadgeNumber(0);
-    });
-}
+	},iabLoadStop: function(){
+		if(device.platform =="Android"){
+			navigator.notification.activityStop();
+		}
+	},iabLoadError: function(){
+	},iabClose: function(){
+		iabRef.removeEventListener('loadstart', app.iabLoadStart);
+		iabRef.removeEventListener('loadstop', app.iabLoadStop);
+		iabRef.removeEventListener('loaderror', app.iabLoadError);
+		iabRef.removeEventListener('exit', app.iabClose);
 	}
-	
-	function alertCallback(){
-	
-	}
-
-
-			// Call this to register for push notifications and retreive a deviceToken
-			PushNotification.prototype.registerDevice = function(config, success, fail) {
-				cordova.exec(success, fail, "PushNotification", "registerDevice", config ? [config] : []);
-			};
-			 
-			// Call this to set tags for the device
-			PushNotification.prototype.setTags = function(config, success, fail) {
-				cordova.exec(success, fail, "PushNotification", "setTags", config ? [config] : []);
-			};
-			 
-			//Unregister device from push notifications
-			PushNotification.prototype.unregisterDevice = function(success, fail) {
-				cordova.exec(success, fail, "PushNotification", "unregisterDevice", []);
-			};
-			 
-			//starts geo push notifications
-			PushNotification.prototype.startGeoPushes = function(success, fail) {
-				cordova.exec(success, fail, "PushNotification", "startGeoPushes", []);
-			};
-			 
-			//stops geo push notifications
-			PushNotification.prototype.stopGeoPushes = function(success, fail) {
-				cordova.exec(success, fail, "PushNotification", "stopGeoPushes", []);
-			};
-			 
-			//sets multi notification mode on
-			PushNotification.prototype.setMultiNotificationMode = function(success, fail) {
-				cordova.exec(success, fail, "PushNotification", "setMultiNotificationMode", []);
-			};
-			 
-			//sets single notification mode
-			PushNotification.prototype.setSingleNotificationMode = function(success, fail) {
-				cordova.exec(success, fail, "PushNotification", "setSingleNotificationMode", []);
-			};
-			 
-			//type: 0 default, 1 no sound, 2 always
-			PushNotification.prototype.setSoundType = function(type, success, fail) {
-				cordova.exec(success, fail, "PushNotification", "setSoundType", [type]);
-			}; 
-			 
-			//type: 0 default, 1 no vibration, 2 always
-			PushNotification.prototype.setVibrateType = function(type, success, fail) {
-				cordova.exec(success, fail, "PushNotification", "setVibrateType", [type]);
-			}; 
+};
