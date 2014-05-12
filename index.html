@@ -9,6 +9,13 @@
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
 	<link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css">	
 	<link rel="stylesheet" href="css/jqm-demos.css">	
+	<style>
+		p.proche{
+			display:none;
+			color:#5CB253;
+			font-weight: normal; !important
+		}
+	</style>
 		
 	<script src="phonegap.js"></script>	
 	
@@ -31,7 +38,7 @@
 			<div class="ui-block-a">
 				<div class="jqm-block-content">
         			<h3>Restaurant de Metz</h3>
-					<p style="display:none;color:#5CB253;" id="isplusprocheMetz2">Vous êtes plus proche de ce restaurant !</p>
+					<p class="proche" id="isplusprocheMetz2">Vous êtes plus proche de ce restaurant !</p>
         			<p>Distance : <span id="distanceRestoMetz"></span></p>
 					<p><a rel="external" href="pageMetz.html" class="ui-btn ui-mini ui-shadow ui-corner-all">Voir le restaurant</a></p>
         		</div>
@@ -41,20 +48,14 @@
 			<div class="ui-block-a">
 				<div class="jqm-block-content">
         			<h3>Restaurant de Thionville</h3>
-					<p style="display:none;color:#5CB253;" id="isplusprocheThionville2">Vous êtes plus proche de ce restaurant !</p>
+					<p class="proche" id="isplusprocheThionville2">Vous êtes plus proche de ce restaurant !</p>
         			<p>Distance : <span id="distanceRestoThionville"></span></p>
 					<p><a rel="external" href="pageThionville.html" class="ui-btn ui-mini ui-shadow ui-corner-all">Voir le restaurant</a></p>
         		</div>
 			</div>
 		</div>
 		
-		<div class="ui-grid-solo"  id="thionville">
-			<div class="ui-block-a">
-				<div class="jqm-block-content">
-					<p><a rel="external" href="index.html" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-refresh">Rafraichir la position</a></p>
-        		</div>
-			</div>
-		</div>
+		<a rel="external" href="index.html" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-refresh">Rafraichir la position</a>
 		
 		
       </div>
