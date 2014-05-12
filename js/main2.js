@@ -1,9 +1,3 @@
-/*var viewPortTag=document.createElement('meta');
-viewPortTag.id="viewport";
-viewPortTag.name = "viewport";
-viewPortTag.content = "width=320; content=user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, target-densitydpi=device-dpi;";
-document.getElementsByTagName('head')[0].appendChild(viewPortTag);
-*/
 
 // Wait for device API libraries to load
 	function init() {	
@@ -11,7 +5,7 @@ document.getElementsByTagName('head')[0].appendChild(viewPortTag);
 
     // device APIs are available
 	var options = { timeout: 31000, enableHighAccuracy: true, maximumAge: 90000 };
-	var devicePlatform = device.platform;
+	// var devicePlatform = device.platform;
     function onDeviceReady() {
         navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
 		
@@ -32,8 +26,8 @@ document.getElementsByTagName('head')[0].appendChild(viewPortTag);
 		var distTh = Distance(position.coords.latitude , position.coords.longitude, 49.3667, 6.1667);
 		var distMe = Distance(position.coords.latitude , position.coords.longitude, 49.119327,  6.17101);
 		
-		distanceRestoMetz.innerHTML =  distMe + " Km"
-		distanceRestoThionville.innerHTML =  distTh + " Km"
+		/* distanceRestoMetz.innerHTML =  distMe + " Km"
+		distanceRestoThionville.innerHTML =  distTh + " Km" */
 		
 		if(parseFloat(distMe) < parseFloat(distTh)){
 			isplusprocheThionville.style.display = 'block';
