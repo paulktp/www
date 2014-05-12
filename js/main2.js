@@ -29,11 +29,9 @@
 		
 		if(parseFloat(distMe) > parseFloat(distTh)){
 			isplusprocheThionville2.style.display = 'block';
-			
 			isplusprocheMetz2.style.display = 'none';
 		}else{
 			isplusprocheMetz2.style.display = 'block';
-			
 			isplusprocheThionville2.style.display = 'none';
 		}
 
