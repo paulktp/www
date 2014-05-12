@@ -19,6 +19,7 @@
         var distanceRestoMetz = document.getElementById('distanceRestoMetz');
 		var isplusprocheThionville2 = document.getElementById('isplusprocheThionville2');
 		var distanceRestoThionville = document.getElementById('distanceRestoThionville');
+		var recherche = document.getElementById('recherche');
 		
 		
 		var distTh = Distance(position.coords.latitude , position.coords.longitude, 49.3667, 6.1667);
@@ -34,7 +35,8 @@
 			isplusprocheMetz2.style.display = 'block';
 			isplusprocheThionville2.style.display = 'none';
 		}
-
+		
+		recherche.style.display = 'none';
 }
 
     // onError Callback receives a PositionError object
