@@ -31,7 +31,7 @@ document.getElementsByTagName('head')[0].appendChild(viewPortTag);
 		var distMe = Distance(position.coords.latitude , position.coords.longitude, 49.119327,  6.17101);
 		
 		
-		if(parseFloat(distMe) > parseFloat(distTh)){
+		if(parseFloat(distMe) < parseFloat(distTh)){
 			isplusprocheThionville.style.display = 'block';
 			isplusprocheThionville2.style.display = 'block';
 			

@@ -35,17 +35,17 @@
  <body onload="init();">
    <div data-role="page" style="background:url('img/fond2.png') 0 0 no-repeat; background-size: 100% 100%;">
       <div data-role="header" style="background-color: rgba(0, 0, 0, 0);border: none;">
-         <h1 style="text-align:center;"><img src="logo.png" style="height:15%; width:70%"/></h1>
+         <h1 style="text-align:center;"><img src="logo.png" style="width:100%"/></h1>
 		 
       </div>
       <div data-role="content">
 		<div class="ui-grid-solo" id="metz">
 			<div class="ui-block-a">
 				<div class="jqm-block-content">
-        			<h3>Restaurant de Metz <span id="isplusprocheMetz" style="display:;"><a href="#" class="ui-nodisc-icon ui-btn ui-corner-all ui-icon-check ui-btn-icon-notext ui-btn-inline">plus proche</a><span></h3>
+        			<h3>Restaurant de Metz <span id="isplusprocheMetz" style="display:none;"><a href="#" class="ui-nodisc-icon ui-btn ui-corner-all ui-icon-check ui-btn-icon-notext ui-btn-inline">plus proche</a><span></h3>
 					<p style="display:none;color:#5CB253;" id="isplusprocheMetz2">Vous êtes plus proche de ce restaurant !</p>
         			<p>Distance :<span class="distanceResto"></span></p>
-        			<p><button onClick = "redirectKyouMetz()" class="ui-btn ui-mini ui-shadow ui-corner-all">Voir les informations de ce restaurant</button></p>
+        			<p><button onClick ="redirectKyouMetz()" class="ui-btn ui-mini ui-shadow ui-corner-all">Voir le restaurant</button></p>
         		</div>
 			</div>
 		</div>
@@ -55,7 +55,7 @@
         			<h3>Restaurant de Thionville <span id="isplusprocheThionville" style="display:none;"><a href="#" class="ui-nodisc-icon ui-btn ui-corner-all ui-icon-check ui-btn-icon-notext ui-btn-inline">plus proche</a><span></h3>
 					<p style="display:none;color:#5CB253;" id="isplusprocheThionville2">Vous êtes plus proche de ce restaurant !</p>
         			<p>Distance :<span class="distanceResto"></span></p>
-        			<p><button onClick = "redirectKyouThionville()" class="ui-btn ui-mini ui-shadow ui-corner-all">Voir les informations de ce restaurant</button></p>
+        			<p><button onClick = "redirectKyouThionville()" class="ui-btn ui-mini ui-shadow ui-corner-all">Voir le restaurant</button></p>
         		</div>
 			</div>
 		</div>
