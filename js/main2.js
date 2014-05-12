@@ -15,10 +15,8 @@
 	
     // onSuccess Geolocation
     function onSuccess(position) {
-        var isplusprocheMetz = document.getElementById('isplusprocheMetz');
         var isplusprocheMetz2 = document.getElementById('isplusprocheMetz2');
         var distanceRestoMetz = document.getElementById('distanceRestoMetz');
-		var isplusprocheThionville = document.getElementById('isplusprocheThionville');
 		var isplusprocheThionville2 = document.getElementById('isplusprocheThionville2');
 		var distanceRestoThionville = document.getElementById('distanceRestoThionville');
 		
@@ -26,20 +24,16 @@
 		var distTh = Distance(position.coords.latitude , position.coords.longitude, 49.3667, 6.1667);
 		var distMe = Distance(position.coords.latitude , position.coords.longitude, 49.119327,  6.17101);
 		
-		/* distanceRestoMetz.innerHTML =  distMe + " Km"
-		distanceRestoThionville.innerHTML =  distTh + " Km" */
+		distanceRestoMetz.innerHTML =  distMe + " Km"
+		distanceRestoThionville.innerHTML =  distTh + " Km"
 		
-		if(parseFloat(distMe) < parseFloat(distTh)){
-			isplusprocheThionville.style.display = 'block';
+		if(parseFloat(distMe) > parseFloat(distTh)){
 			isplusprocheThionville2.style.display = 'block';
 			
-			isplusprocheMetz.style.display = 'none';
 			isplusprocheMetz2.style.display = 'none';
 		}else{
-			isplusprocheMetz.style.display = 'block';
 			isplusprocheMetz2.style.display = 'block';
 			
-			isplusprocheThionville.style.display = 'none';
 			isplusprocheThionville2.style.display = 'none';
 		}
 

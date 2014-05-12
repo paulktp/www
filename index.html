@@ -41,7 +41,7 @@
 		<div class="ui-grid-solo" id="metz">
 			<div class="ui-block-a">
 				<div class="jqm-block-content">
-        			<h3>Restaurant de Metz <span id="isplusprocheMetz" style="display:none;"><a href="#" class="ui-nodisc-icon ui-btn ui-corner-all ui-icon-check ui-btn-icon-notext ui-btn-inline">plus proche</a><span></h3>
+        			<h3>Restaurant de Metz</h3>
 					<p style="display:none;color:#5CB253;" id="isplusprocheMetz2">Vous êtes plus proche de ce restaurant !</p>
         			<p>Distance :<span class="distanceRestoMetz"></span></p>
         			<p><button onClick ="redirectKyouMetz()" class="ui-btn ui-mini ui-shadow ui-corner-all">Voir le restaurant</button></p>
@@ -51,7 +51,7 @@
 		<div class="ui-grid-solo"  id="thionville">
 			<div class="ui-block-a">
 				<div class="jqm-block-content">
-        			<h3>Restaurant de Thionville <span id="isplusprocheThionville" style="display:none;"><a href="#" class="ui-nodisc-icon ui-btn ui-corner-all ui-icon-check ui-btn-icon-notext ui-btn-inline">plus proche</a><span></h3>
+        			<h3>Restaurant de Thionville</h3>
 					<p style="display:none;color:#5CB253;" id="isplusprocheThionville2">Vous êtes plus proche de ce restaurant !</p>
         			<p>Distance :<span class="distanceRestoThionville"></span></p>
         			<p><button onClick = "redirectKyouThionville()" class="ui-btn ui-mini ui-shadow ui-corner-all">Voir le restaurant</button></p>
@@ -78,6 +78,21 @@
 	  </div>
    </div>
    <script type="text/javascript" src="PushNotification.js"></script>
+   <script>
+		function redirectKyouMetz() {	
+			 var ref = window.open('pageMetz.html', '_self', 'location=yes');
+		}
+		function redirectKyouThionville() {	
+			 var ref = window.open('pageThionville.html', '_self', 'location=yes');
+		}
+		function redirectKyouFB() {	
+			 var ref = window.open('https://www.facebook.com/KyouSushi', '_system', 'location=yes');
+		}
+		function refreshPage() {		
+			 document.location = "index.html";
+		}
+   </script>
+   
 </body>
 
 </html>
