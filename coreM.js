@@ -75,6 +75,9 @@ document.addEventListener("deviceready", onDeviceReady, false);
         /* alert('code: '    + error.code    + '\n' +
                 'message: ' + error.message + '\n'); */
     }
+	function alertCallback(){
+		//nothing
+	}
 	
 	function redirectIndex() {	
          var ref = window.open('index.html', '_self', 'location=yes');
