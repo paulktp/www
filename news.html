@@ -24,18 +24,16 @@
  <body onload="init();">
  
    <div data-role="page" id="mainPage" style="background:url('img/fond2.png') 0 0 no-repeat; background-size: 100% 100%;">
+		
 		<div data-role="header">
 			<a rel="external" href="index.html" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-carat-l">Retour</a>
 			<h1>&nbsp;</h1>
 		</div>
 		  
       <div data-role="content">
-
-			<ul id="linksList" data-role="listview" data-inset="true">
-			
-			
-			</ul>
+			<ul id="linksList" data-role="listview" data-inset="true"></ul>
       </div>
+	  
 	  <div data-role="footer" id="footer">
 		 <p class="center" style="color: #DF2E8B;">&nbsp; &copy; Kyou Sushi</p>
 		 <a href="#" 
@@ -48,12 +46,20 @@
    <div data-role="page" id="contentPage">
 
 		<div data-role="header">
-			<a href="#mainPage" data-rel="back">Retour</a>
+			<a href="#mainPage" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-carat-l" data-rel="back">Retour</a>
 			<h1></h1>
 		</div>
 
 		<div data-role="content" id="entryText">
 		</div>
+		
+		<div data-role="footer" id="footer">
+		 <p class="center" style="color: #DF2E8B;">&nbsp; &copy; Kyou Sushi</p>
+		 <a href="#" 
+			style="background-color: #45619D;color: #FFFFFF;text-shadow: 0 0 0 #000000;" 
+			class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-action" 
+			onClick = "redirectKyouFB()">Facebook</a>
+	  </div>
 			
 	</div>
    
