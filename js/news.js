@@ -8,10 +8,10 @@ $(document).ready(function() {
 	var selectedEntry = "";
 
 	//listen for detail links
-	$(".contentLink").on("click", function() {
+	/* $(".contentLink").on("click", function() {
 		selectedEntry = $(this).data("entryid");
 		alert(selectedEntry)
-	});
+	}); */
 
 	//Listen for main page
 	$("#mainPage").on("pageinit", function() {
@@ -35,12 +35,17 @@ $(document).ready(function() {
 			});
 			$("#linksList").append(s);
 			$("#linksList").listview("refresh");
+			
+			$(".contentLink").on("click", function() {
+				selectedEntry = $(this).data("entryid");
+				alert(selectedEntry)
+			});
 		});
 
 	});
 
 	//Listen for the content page to load
-	$("#contentPage").on("pageshow", function(prepage) {
+	 $("#contentPage").on("pageshow", function(prepage) {
 		alert("pageshow")
 		//Set the title
 		$("h1", this).text(entries[selectedEntry].title);
