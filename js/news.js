@@ -41,7 +41,7 @@ $(document).ready(function() {
 
 	//Listen for the content page to load
 	$("#contentPage").on("pageshow", function(prepage) {
-		alert(pageshow)
+		alert("pageshow")
 		//Set the title
 		$("h1", this).text(entries[selectedEntry].title);
 		var contentHTML = "";
