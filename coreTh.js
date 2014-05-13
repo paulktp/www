@@ -30,7 +30,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 				map.addMarker({
 				lat: lati,
 				lng: longi,
-				title: 'You are here.',
+				title: 'Vous êtes ici.',
 				infoWindow: {
 				content: 'Vous êtes ici'}
 			});
@@ -53,9 +53,9 @@ document.addEventListener("deviceready", onDeviceReady, false);
 		map.addMarker({
 		  lat: 49.3580638,
 		  lng: 6.1691812000000255,
-		  title: 'Kyou sushi Thionville',
+		  title: 'Kyou Sushi Thionville',
 		  infoWindow: {
-			content: 'Le restaurant kyou sushi de Thionville ouvrira prochainement'}
+			content: 'Le restaurant Kyou Sushi de Thionville ouvrira prochainement.'}
 		});
     }
 
@@ -64,14 +64,4 @@ document.addEventListener("deviceready", onDeviceReady, false);
     function onError(error) {
         alert('code: '    + error.code    + '\n' +
                 'message: ' + error.message + '\n');
-    }
-	
-		function redirectIndex() {	
-         var ref = window.open('index.html', '_self', 'location=yes');
-	}
-	function redirectWebSite() {	
-         var ref = window.open('http://www.kyousushi.com/la-carte/menus/', '_system', 'location=yes');
-	}
-	function redirectKyouFB() {	
-         var ref = window.open('https://www.facebook.com/KyouSushi', '_system', 'location=yes');
-	}	
+    }	
