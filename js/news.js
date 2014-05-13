@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
-	/* var RSS = "https://www.facebook.com/feeds/page.php?id=134381556628058&format=rss20"; */
-	var RSS = "http://feedproxy.google.com/RaymondCamdensColdfusionBlog";
+	var RSS = "https://www.facebook.com/feeds/page.php?id=134381556628058&format=rss20";
+	/* var RSS = "http://feedproxy.google.com/RaymondCamdensColdfusionBlog"; */
 	var entries = [];
 
 /* $.ajax({
