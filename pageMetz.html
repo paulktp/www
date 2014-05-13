@@ -70,11 +70,12 @@
    </div>
    <script>
 		function redirectKyouFB() {	
-			 var ref = window.open('https://www.facebook.com/KyouSushi', '_system', 'location=yes');
+			 window.plugins.ChildBrowser.showWebPage('https://www.facebook.com/KyouSushi',
+                                        { showLocationBar: true,showAddress: false});
 		}
 		function redirectWebSite() {	
-			 window.plugins.ChildBrowser.showWebPage('http://www.google.com',
-                                        { showLocationBar: true });
+			 window.plugins.ChildBrowser.showWebPage('http://www.kyousushi.com/la-carte/menus/',
+                                        { showLocationBar: true,showAddress: false});
 		}
    </script>
    
