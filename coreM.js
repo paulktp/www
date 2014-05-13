@@ -11,6 +11,8 @@ document.addEventListener("deviceready", onDeviceReady, false);
 	   if(device.model.indexOf('iPad') >= 0) {
 			var d = document.getElementById('footer');
 			d.className = d.className + " ui-footer-fixed";
+			var d2 = document.getElementById('directions_map');
+			d2.className = d2.className + " map_ipad";
 		}
     }
 		var lati;
