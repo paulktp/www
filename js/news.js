@@ -33,12 +33,11 @@ $(document).ready(function() {
 			$.each(entries, function(i, v) {
 				s += '<li><a href="#contentPage" class="contentLink" data-entryid="'+i+'">' + v.title + '</a></li>';
 			});
-			$("#linksList").append(s);
+			$("#linksList").html(s);
 			$("#linksList").listview("refresh");
 			
 			$(".contentLink").on("click", function() {
 				selectedEntry = $(this).data("entryid");
-				alert(selectedEntry)
 			});
 		});
 
@@ -46,11 +45,10 @@ $(document).ready(function() {
 
 	//Listen for the content page to load
 	 $("#contentPage").on("pageshow", function(prepage) {
-		alert("pageshow")
 		//Set the title
 		/* $("h1", this).text(entries[selectedEntry].title); */
 		var contentHTML = "";
-		contentHTML += '<h1>'+entries[selectedEntry].title+'</h1>';
+		contentHTML += '<h2>'+entries[selectedEntry].title+'</h2>';
 		contentHTML += entries[selectedEntry].description;
 		/* contentHTML += '<p/><a href="'+entries[selectedEntry].link + '">Read Entry on Site</a>'; */
 		$("#entryText",this).html(contentHTML);
