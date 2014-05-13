@@ -48,10 +48,11 @@ $(document).ready(function() {
 	 $("#contentPage").on("pageshow", function(prepage) {
 		alert("pageshow")
 		//Set the title
-		$("h1", this).text(entries[selectedEntry].title);
+		/* $("h1", this).text(entries[selectedEntry].title); */
 		var contentHTML = "";
+		contentHTML += '<h1>'+entries[selectedEntry].title+'</h1>';
 		contentHTML += entries[selectedEntry].description;
-		contentHTML += '<p/><a href="'+entries[selectedEntry].link + '">Read Entry on Site</a>';
+		/* contentHTML += '<p/><a href="'+entries[selectedEntry].link + '">Read Entry on Site</a>'; */
 		$("#entryText",this).html(contentHTML);
 	});
 
