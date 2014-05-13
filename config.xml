@@ -6,10 +6,10 @@
         id = "com.kyousushi.ios"
         version = "2.0.0"
 		xml:lang="fr">
-    <name>Kyou sushi</name>
+    <name>Kyou Sushi</name>
 
     <description>
-        Mobile application.
+        Application mobile
     </description>
 
     <access origin="*"/>
