@@ -62,10 +62,10 @@ document.addEventListener("deviceready", onDeviceReady, false);
 		  title: 'Kyou Sushi Metz',
 		  icon: image,
 		  infoWindow: {
-			content: 'Restaurant Kyou Sushi de Metz Adresse : 6 Rue du Moyen Pont, 57000 Metz </br>Téléphone : 03 87 66 83 52 </br>Horaires : Ouvert 7/7j de 12:00 à 15:00 et de 18:30 à 23:00'}
+			content: 'Restaurant Kyou Sushi de Metz Adresse : 6 Rue du Moyen Pont, 57000 Metz <br/>Téléphone : 03 87 66 83 52 <br/>Horaires : Ouvert 7/7j de 12:00 à 15:00 et de 18:30 à 23:00'}
 		});
 		
-		map.fitZoom();
+		
     }
 
     // onError Callback receives a PositionError object
