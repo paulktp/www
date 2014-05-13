@@ -8,13 +8,12 @@ $(document).ready(function() {
 	var selectedEntry = "";
 
 	//listen for detail links
-	$(".contentLink").live("click", function() {
+	$(".contentLink").on("click", function() {
 		selectedEntry = $(this).data("entryid");
 	});
 
 	//Listen for main page
-	$("#mainPage").live("pageinit", function() {
-
+	$("#mainPage").on("pageinit", function() {
 
 		$.get(RSS, {}, function(res, code) {
 			var xml = $(res);
@@ -40,7 +39,7 @@ $(document).ready(function() {
 	});
 
 	//Listen for the content page to load
-	$("#contentPage").live("pageshow", function(prepage) {
+	$("#contentPage").on("pageshow", function(prepage) {
 		//Set the title
 		$("h1", this).text(entries[selectedEntry].title);
 		var contentHTML = "";
