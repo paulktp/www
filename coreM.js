@@ -70,8 +70,10 @@ document.addEventListener("deviceready", onDeviceReady, false);
     // onError Callback receives a PositionError object
     //
     function onError(error) {
-        alert('code: '    + error.code    + '\n' +
-                'message: ' + error.message + '\n');
+		navigator.notification.alert('Les données du GPS doivent être accessibles pour que l\' application fonctionne correctement. Veuillez activer le GPS.\n'
+									, alertCallback, "Erreur", "Fermer")
+        /* alert('code: '    + error.code    + '\n' +
+                'message: ' + error.message + '\n'); */
     }
 	
 	function redirectIndex() {	
