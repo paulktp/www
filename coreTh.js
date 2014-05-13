@@ -1,9 +1,3 @@
-var viewPortTag=document.createElement('meta');
-viewPortTag.id="viewport";
-viewPortTag.name = "viewport";
-viewPortTag.content = "width=320; content=user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, target-densitydpi=device-dpi;";
-document.getElementsByTagName('head')[0].appendChild(viewPortTag);
-  
 document.addEventListener("deviceready", onDeviceReady, false);
 
     // Cordova is ready
@@ -15,57 +9,49 @@ document.addEventListener("deviceready", onDeviceReady, false);
 		var lati;
 		var longi;
     function onSuccess(position) {
-	var element1 = document.getElementById('img');
-	var element2 = document.getElementById('ret');
 
-	if(device.platform == 'iOS'){
-		element2.innerHTML = '<p onClick = "redirectIndex()" style="margin-left:3%; margin-top:5%; color:black; font-size:1em;background: #bfbfbf;background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#e5e5e5), to(#bbb));background: -moz-linear-gradient(0% 100% 90deg,#bbb, #e5e5e5);border: 1px solid #ccc;border-radius: 3px;color: #333;font-weight: bold;padding: 8px 0;text-align: center;text-shadow: 0 1px 0px #eee;width: 18%;">Retour</p>';
-	}			
-	if(device.model.indexOf('iPad') >= 0) {
-	element1.innerHTML = '<h1 style="text-align:center;margin-top:9%"><img src="logo.png" /></h1>';
-	}
 		lati = position.coords.latitude;
 		longi = position.coords.longitude ;
-			var map;
-  var map = new GMaps({
-    el: '#directions_map',
-    lat: 49.3580638,
-    lng: 6.1691812000000255,
-    zoom:12
-  });
-  GMaps.geolocate({
-    success: function(position){
-      map.setCenter(lati, longi);
-	  	    map.addMarker({
-			lat: lati,
-			lng: longi,
-			title: 'You are here.',
-			infoWindow: {
-			content: 'Vous êtes ici'}
+				var map;
+	  var map = new GMaps({
+		el: '#directions_map',
+		lat: 49.3580638,
+		lng: 6.1691812000000255,
+		zoom:12
+	  });
+	  GMaps.geolocate({
+		success: function(position){
+		  map.setCenter(lati, longi);
+				map.addMarker({
+				lat: lati,
+				lng: longi,
+				title: 'You are here.',
+				infoWindow: {
+				content: 'Vous êtes ici'}
+			});
+		   map.drawRoute({
+			origin: [lati, longi],
+			destination: [49.3580638, 6.1691812000000255],
+			travelMode: 'driving',
+			strokeColor: '#000',
+			strokeOpacity: 0.6,
+			strokeWeight: 6
+		  });
+		},
+		error: function(error){
+		  alert('Geolocation failed: '+error.message);
+		},
+		not_supported: function(){
+		  alert("Your browser does not support geolocation");
+		}
+	  });
+		map.addMarker({
+		  lat: 49.3580638,
+		  lng: 6.1691812000000255,
+		  title: 'Kyou sushi Thionville',
+		  infoWindow: {
+			content: 'Le restaurant kyou sushi de Thionville ouvrira prochainement'}
 		});
-       map.drawRoute({
-        origin: [lati, longi],
-        destination: [49.3580638, 6.1691812000000255],
-        travelMode: 'driving',
-        strokeColor: '#000',
-        strokeOpacity: 0.6,
-        strokeWeight: 6
-      });
-    },
-    error: function(error){
-      alert('Geolocation failed: '+error.message);
-    },
-    not_supported: function(){
-      alert("Your browser does not support geolocation");
-    }
-  });
-    map.addMarker({
-      lat: 49.3580638,
-      lng: 6.1691812000000255,
-      title: 'Kyou sushi Thionville',
-      infoWindow: {
-        content: 'Le restaurant kyou sushi de Thionville ouvrira prochainement'}
-    });
     }
 
     // onError Callback receives a PositionError object

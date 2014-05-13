@@ -5,18 +5,17 @@ document.addEventListener("deviceready", onDeviceReady, false);
 	var options = { timeout: 31000, enableHighAccuracy: true, maximumAge: 90000 };
     function onDeviceReady() {
        pos = navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
+	   
+	   
+	   
+	   if(device.model.indexOf('iPad') >= 0) {
+			var d = document.getElementById('footer');
+			d.className = d.className + " ui-footer-fixed";
+		}
     }
 		var lati;
 		var longi;
     function onSuccess(position) {
-		var element1 = document.getElementById('img');
-		var element2 = document.getElementById('ret');
-
-		if(device.platform == 'iOS'){
-		}else{element2.style.display = 'none';}
-		if(device.model.indexOf('iPad') >= 0) {
-			element1.innerHTML = '<h1 style="text-align:center;margin-top:9%"><img src="logo.png" /></h1>';
-		}
 		
 		lati = position.coords.latitude;
 		longi = position.coords.longitude ;
