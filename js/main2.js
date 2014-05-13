@@ -7,6 +7,11 @@
 	var options = { timeout: 31000, enableHighAccuracy: true, maximumAge: 90000 };
 	// var devicePlatform = device.platform;
     function onDeviceReady() {
+		if(device.model.indexOf('iPad') >= 0) {
+			var d = document.getElementById('footer');
+			d.className = d.className + " ui-footer-fixed";
+		}
+	
         navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
 		
 		// if(device.platform == 'iOS'){ initPushwooshiOS();}

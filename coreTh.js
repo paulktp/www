@@ -5,6 +5,11 @@ document.addEventListener("deviceready", onDeviceReady, false);
 	var options = { timeout: 31000, enableHighAccuracy: true, maximumAge: 90000 };
     function onDeviceReady() {
        pos = navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
+	   
+	   if(device.model.indexOf('iPad') >= 0) {
+			var d = document.getElementById('footer');
+			d.className = d.className + " ui-footer-fixed";
+		}
     }
 		var lati;
 		var longi;
