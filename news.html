@@ -22,7 +22,8 @@
   
   
  <body onload="init();">
-   <div data-role="page" style="background:url('img/fond2.png') 0 0 no-repeat; background-size: 100% 100%;">
+ 
+   <div data-role="page" id="mainPage" style="background:url('img/fond2.png') 0 0 no-repeat; background-size: 100% 100%;">
 		<div data-role="header">
 			<a rel="external" href="index.html" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-carat-l">Retour</a>
 			<h1>&nbsp;</h1>
@@ -46,15 +47,15 @@
    
    <div data-role="page" id="contentPage">
 
-    <div data-role="header">
-        <a href="#mainPage" data-rel="back">Home</a>
-        <h1></h1>
-    </div>
+		<div data-role="header">
+			<a href="#mainPage" data-rel="back">Retour</a>
+			<h1></h1>
+		</div>
 
-    <div data-role="content" id="entryText">
-    </div>
-        
-</div>
+		<div data-role="content" id="entryText">
+		</div>
+			
+	</div>
    
    <script type="text/javascript" src="PushNotification.js"></script>
    <script>
