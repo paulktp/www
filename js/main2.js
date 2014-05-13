@@ -46,7 +46,7 @@
 
     // onError Callback receives a PositionError object
     function onError(error) {
-        alert('message: Les données du GPS doivent être accessibles pour que l\' application fonctionne correctement. Veuillez activer le GPS.\n');
+        alert('message: Les donnÃ©es du GPS doivent Ãªtre accessibles pour que l\' application fonctionne correctement. Veuillez activer le GPS.\n');
             navigator.app.exitApp();}
 	
 		var LatA = 41.3879169;

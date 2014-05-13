@@ -31,26 +31,26 @@ document.getElementsByTagName('head')[0].appendChild(viewPortTag);
 		var distMe = Distance(position.coords.latitude , position.coords.longitude, 49.119327,  6.17101);
 		if(device.model.indexOf('iPad') >= 0 ) {
 			if(parseFloat(distMe) > parseFloat(distTh)){
-				element1.innerHTML = '<p style="text-align:center; margin-top:5%;color:e2b500; font-size:2em">Vous êtes plus proche du </p>';
+				element1.innerHTML = '<p style="text-align:center; margin-top:5%;color:e2b500; font-size:2em">Vous Ãªtes plus proche du </p>';
 				element1.innerHTML += '<p style="text-align:center; font-size:2em">Restaurant de Thionville<br />Distance : ' + distTh + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
 				element2.innerHTML = '<p style="text-align:center; margin-top:5%; font-size:2em">Restaurant de Metz<br />Distance : ' + distMe + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
 				element1.style.backgroundColor = "white";
 				element2.style.backgroundColor = "white";
 			}else{ 
-				element2.innerHTML = '<p style="text-align:center; margin-top:5%;color:e2b500; font-size:2em">Vous êtes plus proche du </p>';
+				element2.innerHTML = '<p style="text-align:center; margin-top:5%;color:e2b500; font-size:2em">Vous Ãªtes plus proche du </p>';
 				element2.innerHTML += '<p style="text-align:center; font-size:2em">Restaurant de Metz<br />Distance : ' + distMe + 'km <br /><br />Cliquer ici pour plus d\'information</p>';				
 				element1.innerHTML = '<p style="text-align:center; margin-top:5%; font-size:2em">Restaurant de Thionville<br />Distance : ' + distTh + 'km <br /><br />Cliquer ici pour plus d\'information</p>';
 				element2.style.backgroundColor = "white";
 				element1.style.backgroundColor = "white";}
 		} else {
 			if(parseFloat(distMe) > parseFloat(distTh)){
-				element1.innerHTML = '<p style="text-align:center; margin-top:2%;color:e2b500; font-size:0.9em">Vous êtes plus proche du </p>';
+				element1.innerHTML = '<p style="text-align:center; margin-top:2%;color:e2b500; font-size:0.9em">Vous Ãªtes plus proche du </p>';
 				element1.innerHTML += '<p style="text-align:center; font-size:0.9em">Restaurant de Thionville<br />Distance : ' + distTh + 'km <br /><br />Cliquer ici pour plus <br />d\'information</p>';
 				element2.innerHTML = '<p style="text-align:center; margin-top:5%; font-size:0.9em">Restaurant de Metz<br />Distance : ' + distMe + 'km <br /><br />Cliquer ici pour plus <br />d\'information</p>';
 				element1.style.backgroundColor = "white";
 				element2.style.backgroundColor = "white";
 			}else{ 
-				element2.innerHTML = '<p style="text-align:center; margin-top:2%;color:e2b500; font-size:0.9em">Vous êtes plus proche du </p>';
+				element2.innerHTML = '<p style="text-align:center; margin-top:2%;color:e2b500; font-size:0.9em">Vous Ãªtes plus proche du </p>';
 				element2.innerHTML += '<p style="text-align:center; font-size:0.9em">Restaurant de Metz<br />Distance : ' + distMe + 'km <br /><br />Cliquer ici pour plus <br />d\'information</p>';				
 				element1.innerHTML = '<p style="text-align:center; margin-top:5%; font-size:0.9em">Restaurant de Thionville<br />Distance : ' + distTh + 'km <br /><br />Cliquer ici pour plus <br />d\'information</p>';
 				element2.style.backgroundColor = "white";
@@ -60,7 +60,7 @@ document.getElementsByTagName('head')[0].appendChild(viewPortTag);
 
     // onError Callback receives a PositionError object
     function onError(error) {
-        alert('message: Les données du GPS doivent être accessibles pour que l\' application fonctionne correctement. Veuillez activer le GPS.\n');
+        alert('message: Les donnÃ©es du GPS doivent Ãªtre accessibles pour que l\' application fonctionne correctement. Veuillez activer le GPS.\n');
             navigator.app.exitApp();}
 	
 		var LatA = 41.3879169;
