@@ -2,7 +2,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
     // Cordova is ready
     //
-	var options = { timeout: 31000, enableHighAccuracy: true, maximumAge: 90000 };
+	var options = { timeout: 10000, enableHighAccuracy: true, maximumAge: 90000 };
     function onDeviceReady() {
        pos = navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
 	   
@@ -26,8 +26,8 @@ document.addEventListener("deviceready", onDeviceReady, false);
 		lng: 6.1691812000000255,
 		zoom:12
 	  });
-	  GMaps.geolocate({
-		success: function(position){
+/* 	  GMaps.geolocate({
+		success: function(position){ */
 		  map.setCenter(lati, longi);
 				map.addMarker({
 				lat: lati,
@@ -44,14 +44,14 @@ document.addEventListener("deviceready", onDeviceReady, false);
 			strokeOpacity: 0.6,
 			strokeWeight: 6
 		  });
-		},
+/* 		},
 		error: function(error){
 		  alert('Geolocation failed: '+error.message);
 		},
 		not_supported: function(){
 		  alert("Your browser does not support geolocation");
 		}
-	  });
+	  }); */
 		map.addMarker({
 		  lat: 49.3580638,
 		  lng: 6.1691812000000255,

@@ -21,7 +21,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 		
 		lati = position.coords.latitude;
 		longi = position.coords.longitude ;
-		alert(lati+'+'+longi)
+		
 		var map;
 		var map = new GMaps({
 			el: '#directions_map',
@@ -29,9 +29,8 @@ document.addEventListener("deviceready", onDeviceReady, false);
 			lng: 6.168425999999954,
 			zoom:12
 		  });
-	  GMaps.geolocate({
-		success: function(position){
-			alert("success")
+/* 	  GMaps.geolocate({
+		success: function(position){ */
 		  map.setCenter(lati, longi);
 				map.addMarker({
 				lat: lati,
@@ -48,14 +47,14 @@ document.addEventListener("deviceready", onDeviceReady, false);
 			strokeOpacity: 0.6,
 			strokeWeight: 6
 		  });
-		},
+/* 		},
 		error: function(error){
 		  alert('Geolocation failed: '+error.message);
 		},
 		not_supported: function(){
 		  alert("Your browser does not support geolocation");
 		}
-	  });
+	  }); */
 	  var image = 'img/fav.png';
 
 		map.addMarker({
@@ -73,8 +72,8 @@ document.addEventListener("deviceready", onDeviceReady, false);
     function onError(error) {
 		navigator.notification.alert('Les données du GPS doivent être accessibles pour que l\' application fonctionne correctement. Veuillez activer le GPS.\n'
 									, alertCallback, "Erreur", "Fermer")
-        alert('code: '    + error.code    + '\n' +
-                'message: ' + error.message + '\n');
+        /* alert('code: '    + error.code    + '\n' +
+                'message: ' + error.message + '\n'); */
     }
 	function alertCallback(){
 		//nothing
