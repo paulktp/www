@@ -31,7 +31,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 		  });
 	  GMaps.geolocate({
 		success: function(position){
-			alert(success)
+			alert("success")
 		  map.setCenter(lati, longi);
 				map.addMarker({
 				lat: lati,
