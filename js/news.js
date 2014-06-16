@@ -23,7 +23,8 @@ $(document).ready(function() {
 				entry = {
 				title:$(v).find("title").text(),
 				link:$(v).find("link").text(),
-				description:$.trim($(v).find("description").text())
+				description:$.trim($(v).find("description").text()),
+				pubDate:$(v).find("pubDate").text()
 				};
 				entries.push(entry);
 			});
@@ -51,6 +52,25 @@ $(document).ready(function() {
 		contentHTML += '<h2>'+entries[selectedEntry].title+'</h2>';
 		contentHTML += entries[selectedEntry].description;
 		/* contentHTML += '<p/><a href="'+entries[selectedEntry].link + '">Read Entry on Site</a>'; */
+		contentHTML += "<br/><br/>"+entries[selectedEntry].pubDate;
+		
+		var d = new Date(dateObject);
+		var day = d.getDate();
+        var month = d.getMonth() + 1;
+        var year = d.getFullYear();
+		
+		if (day < 10) {
+            day = "0" + day;
+        }
+        if (month < 10) {
+            month = "0" + month;
+        }
+        var date = day + "/" + month + "/" + year;
+		
+		alert(date);
+		
+		contentHTML += "<br/><br/>"+date;
+		
 		$("#entryText",this).html(contentHTML);
 	});
 
