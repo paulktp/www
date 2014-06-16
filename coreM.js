@@ -27,7 +27,8 @@ document.addEventListener("deviceready", onDeviceReady, false);
 			el: '#directions_map',
 			lat: 49.357571,
 			lng: 6.168425999999954,
-			zoom:12
+			zoom:12,
+			panControl:false
 		  });
 /* 	  GMaps.geolocate({
 		success: function(position){ */
