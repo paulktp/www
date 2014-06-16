@@ -82,7 +82,7 @@ $(document).ready(function() {
 	
 	var getPubDate = function(ladate)
 	{
-		var d = new Date(entries[selectedEntry].pubDate);
+		var d = new Date(ladate);
 		var day = d.getDate();
         var month = d.getMonth() + 1;
         var year = d.getFullYear();
