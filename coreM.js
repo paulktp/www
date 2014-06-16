@@ -2,7 +2,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
     // Cordova is ready
     //
-	var options = { timeout: 31000, enableHighAccuracy: true, maximumAge: 90000 };
+	var options = { timeout: 10000, enableHighAccuracy: true, maximumAge: 90000 };
     function onDeviceReady() {
        pos = navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
 	   
@@ -21,7 +21,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 		
 		lati = position.coords.latitude;
 		longi = position.coords.longitude ;
-		
+		alert(lati+'+'+longi)
 		var map;
 		var map = new GMaps({
 			el: '#directions_map',
@@ -31,6 +31,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 		  });
 	  GMaps.geolocate({
 		success: function(position){
+			alert(success)
 		  map.setCenter(lati, longi);
 				map.addMarker({
 				lat: lati,
@@ -72,8 +73,8 @@ document.addEventListener("deviceready", onDeviceReady, false);
     function onError(error) {
 		navigator.notification.alert('Les données du GPS doivent être accessibles pour que l\' application fonctionne correctement. Veuillez activer le GPS.\n'
 									, alertCallback, "Erreur", "Fermer")
-        /* alert('code: '    + error.code    + '\n' +
-                'message: ' + error.message + '\n'); */
+        alert('code: '    + error.code    + '\n' +
+                'message: ' + error.message + '\n');
     }
 	function alertCallback(){
 		//nothing
