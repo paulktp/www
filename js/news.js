@@ -30,8 +30,13 @@ $(document).ready(function() {
 			});
 
 			//now draw the list
-			var s = '';
+			var s, currendDate = '';
 			$.each(entries, function(i, v) {
+				var date = getPubDate(v.pubDate);
+				if(currendDate != date){
+					currendDate = date;
+					s += '<li data-role="list-divider">'+currendDate+'</li>';
+				}
 				s += '<li><a href="#contentPage" class="contentLink" data-entryid="'+i+'">' + v.title + '</a></li>';
 			});
 			$("#linksList").html(s);
@@ -53,19 +58,8 @@ $(document).ready(function() {
 		contentHTML += entries[selectedEntry].description;
 		/* contentHTML += '<p/><a href="'+entries[selectedEntry].link + '">Read Entry on Site</a>'; */
 	
-		var d = new Date(entries[selectedEntry].pubDate);
-		var day = d.getDate();
-        var month = d.getMonth() + 1;
-        var year = d.getFullYear();
 		
-		if (day < 10) {
-            day = "0" + day;
-        }
-        if (month < 10) {
-            month = "0" + month;
-        }
-        var date = day + "/" + month + "/" + year;
-		
+		var date = getPubDate(entries[selectedEntry].pubDate);
 		contentHTML += "<br/><br/>"+date;
 		
 		$("#entryText",this).html(contentHTML);
@@ -85,4 +79,22 @@ $(document).ready(function() {
 			d.className = d.className + " ui-footer-fixed";
 		}
     }
+	
+	var getPubDate = function(ladate)
+	{
+		var d = new Date(entries[selectedEntry].pubDate);
+		var day = d.getDate();
+        var month = d.getMonth() + 1;
+        var year = d.getFullYear();
+		
+		if (day < 10) {
+            day = "0" + day;
+        }
+        if (month < 10) {
+            month = "0" + month;
+        }
+        var date = day + "/" + month + "/" + year;
+		
+		return date;
+	}
 	
