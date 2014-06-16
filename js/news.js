@@ -54,7 +54,7 @@ $(document).ready(function() {
 		/* contentHTML += '<p/><a href="'+entries[selectedEntry].link + '">Read Entry on Site</a>'; */
 		contentHTML += "<br/><br/>"+entries[selectedEntry].pubDate;
 		
-		var d = new Date(dateObject);
+		var d = new Date(entries[selectedEntry].pubDate);
 		var day = d.getDate();
         var month = d.getMonth() + 1;
         var year = d.getFullYear();
