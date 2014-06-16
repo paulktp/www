@@ -43,7 +43,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 			origin: [lati, longi],
 			destination: [49.119327, 6.17101],
 			travelMode: 'driving',
-			strokeColor: '#000',
+			strokeColor: '#DF2E8B',
 			strokeOpacity: 0.6,
 			strokeWeight: 6
 		  });

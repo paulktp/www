@@ -32,15 +32,15 @@ document.addEventListener("deviceready", onDeviceReady, false);
 				map.addMarker({
 				lat: lati,
 				lng: longi,
-				title: 'Vous êtes ici.',
+				title: 'Vous Ãªtes ici.',
 				infoWindow: {
-				content: 'Vous êtes ici'}
+				content: 'Vous Ãªtes ici'}
 			});
 		   map.drawRoute({
 			origin: [lati, longi],
 			destination: [49.3580638, 6.1691812000000255],
 			travelMode: 'driving',
-			strokeColor: '#000',
+			strokeColor: '#DF2E8B',
 			strokeOpacity: 0.6,
 			strokeWeight: 6
 		  });
@@ -52,10 +52,14 @@ document.addEventListener("deviceready", onDeviceReady, false);
 		  alert("Your browser does not support geolocation");
 		}
 	  }); */
+	  
+	  var image = 'img/fav.png';
+	  
 		map.addMarker({
 		  lat: 49.3580638,
 		  lng: 6.1691812000000255,
 		  title: 'Kyou Sushi Thionville',
+		  icon: image,
 		  infoWindow: {
 			content: 'Le restaurant Kyou Sushi de Thionville ouvrira prochainement.'}
 		});
@@ -64,7 +68,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
     // onError Callback receives a PositionError object
     //
     function onError(error) {
-		navigator.notification.alert('Les données du GPS doivent être accessibles pour que l\' application fonctionne correctement. Veuillez activer le GPS.\n'
+		navigator.notification.alert('Les donnÃ©es du GPS doivent Ãªtre accessibles pour que l\' application fonctionne correctement. Veuillez activer le GPS.\n'
 									, alertCallback, "Erreur", "Fermer")
         /* alert('code: '    + error.code    + '\n' +
                 'message: ' + error.message + '\n'); */
