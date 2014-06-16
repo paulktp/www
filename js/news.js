@@ -49,7 +49,8 @@ $(document).ready(function() {
 			});
 
 			//now draw the list
-			var s, currendDate = '';
+			var s = '';
+			var currendDate = '';
 			$.each(entries, function(i, v) {
 				var date = getPubDate(v.pubDate);
 				if(currendDate != date){
