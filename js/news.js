@@ -52,8 +52,7 @@ $(document).ready(function() {
 		contentHTML += '<h2>'+entries[selectedEntry].title+'</h2>';
 		contentHTML += entries[selectedEntry].description;
 		/* contentHTML += '<p/><a href="'+entries[selectedEntry].link + '">Read Entry on Site</a>'; */
-		contentHTML += "<br/><br/>"+entries[selectedEntry].pubDate;
-		
+	
 		var d = new Date(entries[selectedEntry].pubDate);
 		var day = d.getDate();
         var month = d.getMonth() + 1;
@@ -66,8 +65,6 @@ $(document).ready(function() {
             month = "0" + month;
         }
         var date = day + "/" + month + "/" + year;
-		
-		alert(date);
 		
 		contentHTML += "<br/><br/>"+date;
 		
